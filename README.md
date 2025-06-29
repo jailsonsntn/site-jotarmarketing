@@ -65,3 +65,5 @@ Sim, você pode!
 Para conectar um domínio, entre em contato pelo [Instagram](https://www.instagram.com/jotar.marketing/) para receber orientações personalizadas.
 
 # Todas as menções à plataforma Jota R Marketing foram atualizadas neste README.
+
+# trigger build
