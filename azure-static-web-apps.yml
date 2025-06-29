@@ -1,0 +1,11 @@
+# Azure Static Web Apps Configuration
+# Este arquivo configura o deploy de um app Vite + React + TypeScript no Azure Static Web Apps
+
+app_location: "/"            # Caminho do app fonte
+api_location: ""              # Sem backend API
+output_location: "dist"       # Pasta de build do Vite
+
+routes:
+  - route: /*
+    serve: /index.html
+    statusCode: 200
