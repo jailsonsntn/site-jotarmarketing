@@ -1,2 +1,2 @@
-// Removido: proxy de proposta não é usado neste projeto.
-// Este arquivo permanece intencionalmente vazio.
+// Arquivo desativado: não utilizar como função serverless no Vercel.
+// Mantido apenas para histórico local; o Vercel ignorará se a pasta 'api' não existir.
