@@ -4,7 +4,6 @@
   "trailingSlash": false,
   "routes": [
     { "src": "/googlea24801b852440dd5.html", "dest": "/googlea24801b852440dd5.html", "headers": { "cache-control": "public, max-age=300" } },
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.html" }
+    { "handle": "filesystem" }
   ]
 }
