@@ -5,6 +5,21 @@ const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
+    document.title = "404 | Página não encontrada | Jota R Web";
+
+    const ensureMeta = (name: string, content: string) => {
+      let tag = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("name", name);
+        document.head.appendChild(tag);
+      }
+
+      tag.setAttribute("content", content);
+    };
+
+    ensureMeta("robots", "noindex,nofollow");
+
     console.error(
       "404 Error: User attempted to access non-existent route:",
       location.pathname

@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,40 +9,35 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 45 23% 96%;
+    --foreground: 220 11% 13%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 11% 13%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 11% 13%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 220 11% 13%;
+    --primary-foreground: 45 23% 96%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 45 15% 91%;
+    --secondary-foreground: 220 11% 13%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 45 15% 91%;
+    --muted-foreground: 214 9% 32%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 24 63% 46%;
+    --accent-foreground: 45 23% 96%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 8% 84%;
+    --input: 220 8% 84%;
+    --ring: 220 11% 13%;
 
-    --radius: 0.5rem;
-
-    /* Custom marketing agency colors */
-    --marketing-orange: 27 100% 57%;
-    --marketing-green: 146 100% 13%;
-    --marketing-gray: 0 0% 96%;
+    --radius: 1rem;
   }
 
   .dark {
@@ -81,74 +78,160 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Manrope', sans-serif;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(191, 91, 44, 0.22), transparent 42%),
+      radial-gradient(circle at 85% 20%, rgba(25, 79, 69, 0.22), transparent 40%),
+      radial-gradient(circle at 48% 92%, rgba(212, 163, 87, 0.2), transparent 48%),
+      linear-gradient(130deg, #e3d5bf 0%, #cddfd6 46%, #dcc7a7 100%);
+    min-height: 100vh;
   }
 
   html {
     scroll-behavior: smooth;
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-display {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
 }
 
 @layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
-    opacity: 0;
+  .mesh-gradient-bg {
+    background:
+      radial-gradient(circle at 12% 20%, rgba(191, 91, 44, 0.32), transparent 40%),
+      radial-gradient(circle at 78% 24%, rgba(25, 79, 69, 0.3), transparent 38%),
+      radial-gradient(circle at 52% 78%, rgba(212, 163, 87, 0.3), transparent 45%),
+      linear-gradient(120deg, #e6d5b9 0%, #c6dbd1 48%, #dbc39f 100%);
   }
 
-  .animate-slide-up {
-    animation: slideUp 0.8s ease-out forwards;
-    opacity: 0;
-    transform: translateY(30px);
+  .mesh-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(50px);
+    mix-blend-mode: multiply;
+    will-change: transform;
   }
 
-  .animate-scale-in {
-    animation: scaleIn 0.6s ease-out forwards;
-    opacity: 0;
-    transform: scale(0.9);
+  .mesh-orb-1 {
+    left: -9rem;
+    top: 4rem;
+    height: 25rem;
+    width: 25rem;
+    background: radial-gradient(circle, rgba(191, 91, 44, 0.34) 0%, rgba(191, 91, 44, 0.05) 68%, transparent 100%);
+    animation: orbFloat 18s ease-in-out infinite alternate;
   }
 
-  .animate-zoom-in {
-    animation: zoomIn 1s ease-out forwards;
-    opacity: 0;
-    transform: scale(1);
+  .mesh-orb-2 {
+    right: -10rem;
+    top: 28%;
+    height: 30rem;
+    width: 30rem;
+    background: radial-gradient(circle, rgba(25, 79, 69, 0.3) 0%, rgba(25, 79, 69, 0.06) 66%, transparent 100%);
+    animation: orbFloat 22s ease-in-out infinite alternate-reverse;
   }
 
-  .animate-zoom-out {
-    animation: zoomOut 0.6s ease-out forwards;
+  .mesh-orb-3 {
+    bottom: -8rem;
+    left: 28%;
+    height: 22rem;
+    width: 22rem;
+    background: radial-gradient(circle, rgba(212, 163, 87, 0.34) 0%, rgba(212, 163, 87, 0.06) 68%, transparent 100%);
+    animation: orbFloat 20s ease-in-out infinite alternate;
+  }
+
+  .navbar-sheen {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: linear-gradient(115deg, transparent 28%, rgba(255, 255, 255, 0.48) 50%, transparent 72%);
+    opacity: 0;
+    transform: translateX(-18%);
+    transition: opacity 300ms ease;
+  }
+
+  header:hover .navbar-sheen {
     opacity: 1;
-    transform: scale(1);
+    animation: sheenRun 1.15s ease;
   }
 
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
+  .homebar-interactive {
+    --mx: 50%;
+    --my: 50%;
+    --glow-opacity: 0;
+  }
+
+  .homebar-mouse-glow {
+    background: radial-gradient(260px circle at var(--mx) var(--my), rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0) 62%);
+    opacity: var(--glow-opacity);
+    transition: opacity 220ms ease;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px) scale(0.985);
+    transition:
+      opacity 700ms ease,
+      transform 700ms cubic-bezier(0.21, 1, 0.32, 1);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .reveal-delay-1 {
+    transition-delay: 120ms;
+  }
+
+  .reveal-delay-2 {
+    transition-delay: 220ms;
+  }
+
+  .reveal-delay-3 {
+    transition-delay: 320ms;
+  }
+
+  @keyframes orbFloat {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(20px, -14px, 0) scale(1.06);
+    }
+    100% {
+      transform: translate3d(-16px, 12px, 0) scale(0.98);
     }
   }
 
-  @keyframes slideUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  @keyframes sheenRun {
+    0% {
+      transform: translateX(-35%);
+    }
+    100% {
+      transform: translateX(30%);
     }
   }
 
-  @keyframes scaleIn {
-    to {
-      opacity: 1;
-      transform: scale(1);
+  @media (prefers-reduced-motion: reduce) {
+    .mesh-orb,
+    .navbar-sheen,
+    .homebar-mouse-glow {
+      animation: none;
     }
-  }
 
-  @keyframes zoomIn {
-    to {
+    .reveal,
+    .reveal-visible {
       opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  @keyframes zoomOut {
-    to {
-      opacity: 0.3;
-      transform: scale(0.95);
+      transform: none;
+      transition: none;
     }
   }
 }
