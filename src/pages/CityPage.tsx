@@ -1,69 +1,19 @@
-﻿import { useEffect, useState } from "react";
+﻿import { useEffect } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { ArrowUpRight, Building2, CheckCircle2, MapPin, MessageCircle, Sparkles } from "lucide-react";
+import BrandLogo from "@/components/BrandLogo";
 import { Button } from "@/components/ui/button";
 import { CITY_PAGES } from "@/data/cityPages";
+import { usePageScrollState } from "@/hooks/usePageScrollState";
+import { SITE_URL, setCanonical, setMetaByName, setMetaByProperty } from "@/lib/seo";
 
 type CityPageProps = {
   cityKey: keyof typeof CITY_PAGES;
 };
 
-const SITE_URL = "https://site-jotarmarketing.vercel.app";
-
-const setMetaByName = (name: string, content: string) => {
-  let tag = document.querySelector(`meta[name=\"${name}\"]`) as HTMLMetaElement | null;
-  if (!tag) {
-    tag = document.createElement("meta");
-    tag.setAttribute("name", name);
-    document.head.appendChild(tag);
-  }
-
-  tag.setAttribute("content", content);
-};
-
-const setMetaByProperty = (property: string, content: string) => {
-  let tag = document.querySelector(`meta[property=\"${property}\"]`) as HTMLMetaElement | null;
-  if (!tag) {
-    tag = document.createElement("meta");
-    tag.setAttribute("property", property);
-    document.head.appendChild(tag);
-  }
-
-  tag.setAttribute("content", content);
-};
-
-const setCanonical = (url: string) => {
-  let link = document.querySelector("link[rel='canonical']") as HTMLLinkElement | null;
-  if (!link) {
-    link = document.createElement("link");
-    link.setAttribute("rel", "canonical");
-    document.head.appendChild(link);
-  }
-
-  link.setAttribute("href", url);
-};
-
 const CityPage = ({ cityKey }: CityPageProps) => {
   const content = CITY_PAGES[cityKey];
-  const [scrolled, setScrolled] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-
-      setScrollY(y);
-      setScrolled(y > 10);
-      setScrollProgress(maxScroll > 0 ? (y / maxScroll) * 100 : 0);
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const { scrolled, scrollY, scrollProgress } = usePageScrollState(10);
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -181,11 +131,7 @@ const CityPage = ({ cityKey }: CityPageProps) => {
       >
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <button onClick={() => scrollToSection("topo")} className="flex items-center">
-            <img
-              src="/uploads/2dcc7432-8798-4ae1-b564-16c9f42cc0d1.png"
-              alt="Jota R Marketing"
-              className="h-12 w-auto sm:h-14"
-            />
+            <BrandLogo className="h-12 w-auto sm:h-14" fetchPriority="high" />
           </button>
 
           <nav className="hidden items-center gap-2 rounded-full border border-[#1e2124]/10 bg-white/60 p-1 text-sm font-medium text-[#1e2124]/80 shadow-[0_10px_35px_-30px_rgba(0,0,0,0.8)] backdrop-blur-2xl md:flex">
@@ -298,7 +244,7 @@ const CityPage = ({ cityKey }: CityPageProps) => {
           </aside>
         </section>
 
-        <section id="bairros" className="mx-auto mt-8 grid w-full max-w-7xl gap-6 lg:grid-cols-2">
+        <section id="bairros" className="mx-auto mt-8 grid w-full max-w-7xl gap-6 lg:grid-cols-2" data-deferred-section>
           <article className="rounded-3xl border border-[#1e2124]/10 bg-white/80 p-8 backdrop-blur">
             <h2 className="font-display text-3xl text-[#131518]">Atendimento na regiao</h2>
             <p className="mt-4 text-sm leading-relaxed text-[#2f353b]/80">
@@ -327,7 +273,7 @@ const CityPage = ({ cityKey }: CityPageProps) => {
           </article>
         </section>
 
-        <section className="mx-auto mt-8 w-full max-w-7xl rounded-3xl border border-[#1e2124]/10 bg-white/80 p-8 backdrop-blur lg:p-10">
+        <section className="mx-auto mt-8 w-full max-w-7xl rounded-3xl border border-[#1e2124]/10 bg-white/80 p-8 backdrop-blur lg:p-10" data-deferred-section>
           <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-[#194f45]">Proximo passo</p>
@@ -352,7 +298,7 @@ const CityPage = ({ cityKey }: CityPageProps) => {
       </main>
 
       <footer className="border-t border-[#1e2124]/10 px-5 py-8 lg:px-8">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 text-sm text-[#2f353b]/70 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 text-sm text-[#2f353b]/85 sm:flex-row sm:items-center sm:justify-between">
           <p className="inline-flex items-center gap-2">
             <Building2 className="h-4 w-4" />
             Jota R Web - Estrategia local para {content.cityName}

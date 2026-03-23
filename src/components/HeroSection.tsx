@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import BrandLogo from '@/components/BrandLogo';
 import { useScrollZoom } from '@/hooks/useScrollZoom';
 const HeroSection = () => {
   const heroRef = useScrollZoom({
@@ -69,7 +70,7 @@ const HeroSection = () => {
           <div ref={imageRef}>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-marketing-orange/20 to-marketing-green/20 rounded-2xl transform rotate-3 backdrop-blur-sm"></div>
-              <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop" alt="Marketing Digital" className="relative z-10 w-full h-[400px] object-cover rounded-2xl shadow-2xl border border-white/10" />
+              <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=533&fit=crop&crop=center&auto=format&q=80" srcSet="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=267&fit=crop&crop=center&auto=format&q=80 400w, https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop&crop=center&auto=format&q=80 600w, https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=533&fit=crop&crop=center&auto=format&q=80 800w" sizes="(max-width: 768px) 100vw, 600px" width={800} height={533} loading="lazy" decoding="async" alt="Marketing Digital" className="relative z-10 w-full h-[400px] object-cover rounded-2xl shadow-2xl border border-white/10" />
               
               {/* Floating Cards */}
               <div className="absolute -top-4 -left-4 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg animate-bounce z-30">
@@ -84,7 +85,19 @@ const HeroSection = () => {
 
               {/* Logo overlay */}
               <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-lg">
-                <img src="/uploads/fc9645a5-0ea8-413a-aa15-5ded98d3c7ee.png" alt="Jota R Marketing" className="h-8 w-auto" />
+                <picture>
+                  <source srcSet="/uploads/fc9645a5-0ea8-413a-aa15-5ded98d3c7ee.avif" type="image/avif" />
+                  <source srcSet="/uploads/fc9645a5-0ea8-413a-aa15-5ded98d3c7ee.webp" type="image/webp" />
+                  <img
+                    src="/uploads/fc9645a5-0ea8-413a-aa15-5ded98d3c7ee.png"
+                    alt="Jota R Marketing"
+                    width={632}
+                    height={180}
+                    decoding="async"
+                    loading="lazy"
+                    className="h-8 w-auto"
+                  />
+                </picture>
               </div>
             </div>
           </div>

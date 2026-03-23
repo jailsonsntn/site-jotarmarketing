@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState, type MouseEvent } from 'react';
+import { useEffect, useRef, type MouseEvent } from 'react';
 import {
   ArrowUpRight,
   Code2,
@@ -11,60 +11,49 @@ import {
   Smartphone,
   Sparkles,
 } from 'lucide-react';
+import BrandLogo from '@/components/BrandLogo';
 import { Button } from '@/components/ui/button';
+import { usePageScrollState } from '@/hooks/usePageScrollState';
+import { cancelIdle, requestIdle } from '@/lib/idle';
+import { SITE_URL, setCanonical, setMetaByName, setMetaByProperty } from '@/lib/seo';
 
 const Index = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const { scrolled, scrollY, scrollProgress } = usePageScrollState(12);
   const homebarRef = useRef<HTMLDivElement | null>(null);
   const homebarRafRef = useRef<number | null>(null);
+  const pointerPositionRef = useRef<{ clientX: number; clientY: number } | null>(null);
 
   useEffect(() => {
-    const observerOptions = {
-      threshold: 0.2,
-      rootMargin: '0px 0px -10% 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal-visible');
+    let observer: IntersectionObserver | null = null;
+    const sections = Array.from(document.querySelectorAll('[data-reveal]'));
+    const idleHandle = requestIdle(() => {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-visible');
+            }
+          });
+        },
+        {
+          threshold: 0.2,
+          rootMargin: '0px 0px -10% 0px',
         }
-      });
-    }, observerOptions);
+      );
 
-    const sections = document.querySelectorAll('[data-reveal]');
-    sections.forEach((section) => observer.observe(section));
+      sections.forEach((section) => observer?.observe(section));
+    });
 
-    return () => observer.disconnect();
+    return () => {
+      cancelIdle(idleHandle);
+      observer?.disconnect();
+    };
   }, []);
 
   useEffect(() => {
     document.title =
       'Jota R Web | Criacao de Sites Profissionais, SEO Tecnico e Landing Pages de Alta Conversao';
-
-    const setMetaByName = (name: string, content: string) => {
-      let tag = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
-      if (!tag) {
-        tag = document.createElement('meta');
-        tag.setAttribute('name', name);
-        document.head.appendChild(tag);
-      }
-
-      tag.setAttribute('content', content);
-    };
-
-    const setMetaByProperty = (property: string, content: string) => {
-      let tag = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement | null;
-      if (!tag) {
-        tag = document.createElement('meta');
-        tag.setAttribute('property', property);
-        document.head.appendChild(tag);
-      }
-
-      tag.setAttribute('content', content);
-    };
+    setCanonical(SITE_URL);
 
     setMetaByName(
       'description',
@@ -76,22 +65,12 @@ const Index = () => {
       'og:description',
       'Sites profissionais com UX sofisticada, SEO técnico e alta performance para crescer no Google, Bing e nas IAs.'
     );
-  }, []);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-
-      setScrollY(y);
-      setScrolled(y > 12);
-      setScrollProgress(maxScroll > 0 ? (y / maxScroll) * 100 : 0);
-    };
-
-    onScroll();
-    window.addEventListener('scroll', onScroll);
-
-    return () => window.removeEventListener('scroll', onScroll);
+    setMetaByProperty('og:url', SITE_URL);
+    setMetaByName('twitter:title', 'Jota R Web | Criacao de Sites Profissionais');
+    setMetaByName(
+      'twitter:description',
+      'Sites profissionais com SEO técnico, performance e UX avançada para gerar mais negócios.'
+    );
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -164,26 +143,37 @@ const Index = () => {
   ];
 
   const handleHomebarMouseMove = (event: MouseEvent<HTMLDivElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+    pointerPositionRef.current = {
+      clientX: event.clientX,
+      clientY: event.clientY,
+    };
 
     if (homebarRafRef.current !== null) {
-      cancelAnimationFrame(homebarRafRef.current);
+      return;
     }
 
     homebarRafRef.current = requestAnimationFrame(() => {
-      if (!homebarRef.current) {
+      const pointerPosition = pointerPositionRef.current;
+      const homebarElement = homebarRef.current;
+      homebarRafRef.current = null;
+
+      if (!homebarElement || !pointerPosition) {
         return;
       }
 
-      homebarRef.current.style.setProperty('--mx', `${x}px`);
-      homebarRef.current.style.setProperty('--my', `${y}px`);
-      homebarRef.current.style.setProperty('--glow-opacity', '1');
+      const rect = homebarElement.getBoundingClientRect();
+      const x = pointerPosition.clientX - rect.left;
+      const y = pointerPosition.clientY - rect.top;
+
+      homebarElement.style.setProperty('--mx', `${x}px`);
+      homebarElement.style.setProperty('--my', `${y}px`);
+      homebarElement.style.setProperty('--glow-opacity', '1');
     });
   };
 
   const handleHomebarMouseLeave = () => {
+    pointerPositionRef.current = null;
+
     if (homebarRef.current) {
       homebarRef.current.style.setProperty('--glow-opacity', '0');
     }
@@ -234,11 +224,7 @@ const Index = () => {
             onClick={() => scrollToSection('inicio')}
             className="relative z-10 flex items-center"
           >
-            <img
-              src="/uploads/2dcc7432-8798-4ae1-b564-16c9f42cc0d1.png"
-              alt="Jota R Marketing"
-              className="h-12 w-auto sm:h-14"
-            />
+            <BrandLogo className="h-12 w-auto sm:h-14" fetchPriority="high" />
           </button>
 
           <nav className="hidden items-center gap-2 rounded-full border border-[#1e2124]/10 bg-white/60 p-1 text-sm font-medium text-[#1e2124]/80 shadow-[0_10px_35px_-30px_rgba(0,0,0,0.8)] backdrop-blur-2xl md:flex">
@@ -381,7 +367,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="servicos" className="px-5 py-24 lg:px-8">
+        <section id="servicos" className="px-5 py-24 lg:px-8" data-deferred-section>
           <div className="mx-auto w-full max-w-7xl">
             <div data-reveal className="reveal mb-12 max-w-3xl">
               <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[#194f45]">Soluções completas</p>
@@ -414,7 +400,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="projetos" className="px-5 py-24 lg:px-8">
+        <section id="projetos" className="px-5 py-24 lg:px-8" data-deferred-section>
           <div className="mx-auto w-full max-w-7xl">
             <div data-reveal className="reveal mb-12 max-w-3xl">
               <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[#194f45]">Portfólio em produção</p>
@@ -451,7 +437,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="processo" className="bg-[#121417] px-5 py-24 text-[#f2f3ed] lg:px-8">
+        <section id="processo" className="bg-[#121417] px-5 py-24 text-[#f2f3ed] lg:px-8" data-deferred-section>
           <div className="mx-auto w-full max-w-7xl">
             <div data-reveal className="reveal mb-14 max-w-3xl">
               <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[#d4a357]">Método</p>
@@ -471,14 +457,14 @@ const Index = () => {
                 >
                   <p className="text-sm text-[#d4a357]">Etapa {item.step}</p>
                   <h3 className="mt-2 font-display text-2xl">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/75">{item.text}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-white/85">{item.text}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="contato" className="px-5 py-24 lg:px-8">
+        <section id="contato" className="px-5 py-24 lg:px-8" data-deferred-section>
           <div className="mx-auto grid w-full max-w-7xl gap-8 rounded-[2rem] border border-[#1e2124]/10 bg-white/80 p-8 shadow-[0_25px_60px_-35px_rgba(0,0,0,0.65)] backdrop-blur lg:grid-cols-[1.1fr_0.9fr] lg:p-12">
             <div data-reveal className="reveal">
               <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[#194f45]">Vamos construir seu projeto</p>
@@ -535,7 +521,7 @@ const Index = () => {
       </main>
 
       <footer className="border-t border-[#1e2124]/10 px-5 py-8 lg:px-8">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 text-sm text-[#2f353b]/70 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 text-sm text-[#2f353b]/85 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Jota R Web. Todos os direitos reservados.</p>
           <p className="inline-flex items-center gap-1">
             Feito para empresas que querem escalar com qualidade.

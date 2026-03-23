@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import BrandLogo from '@/components/BrandLogo';
 import { Button } from '@/components/ui/button';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +26,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <img src="/uploads/2dcc7432-8798-4ae1-b564-16c9f42cc0d1.png" alt="Jota R Marketing" className="h-12 w-auto" />
+            <BrandLogo className="h-12 w-auto" fetchPriority="high" />
           </div>
 
           {/* Desktop Navigation */}

@@ -1,6 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -78,7 +76,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Manrope', 'Segoe UI', sans-serif;
     background-image:
       radial-gradient(circle at 15% 8%, rgba(191, 91, 44, 0.22), transparent 42%),
       radial-gradient(circle at 85% 20%, rgba(25, 79, 69, 0.22), transparent 40%),
@@ -197,6 +195,11 @@
 
   .reveal-delay-3 {
     transition-delay: 320ms;
+  }
+
+  [data-deferred-section] {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 900px;
   }
 
   @keyframes orbFloat {

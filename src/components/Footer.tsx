@@ -1,3 +1,5 @@
+import BrandLogo from '@/components/BrandLogo';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const footerLinks = {
@@ -25,7 +27,19 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
-              <img src="/uploads/afc8e4c9-8c5e-4f3f-ac82-553b02a37d51.png" alt="Jota R Marketing" className="h-12 w-auto" />
+              <picture>
+                <source srcSet="/uploads/afc8e4c9-8c5e-4f3f-ac82-553b02a37d51.avif" type="image/avif" />
+                <source srcSet="/uploads/afc8e4c9-8c5e-4f3f-ac82-553b02a37d51.webp" type="image/webp" />
+                <img
+                  src="/uploads/afc8e4c9-8c5e-4f3f-ac82-553b02a37d51.png"
+                  alt="Jota R Marketing"
+                  width={632}
+                  height={180}
+                  decoding="async"
+                  loading="lazy"
+                  className="h-12 w-auto"
+                />
+              </picture>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Transformamos negócios através do marketing digital. Mais de 5 anos gerando resultados 
