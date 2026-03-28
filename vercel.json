@@ -2,6 +2,17 @@
   "version": 2,
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "jotarmarketing.com.br"
+        }
+      ],
+      "destination": "https://www.jotarmarketing.com.br/:path*",
+      "permanent": true
+    },
+    {
       "source": "/praiagrande/",
       "destination": "/praiagrande",
       "permanent": true
