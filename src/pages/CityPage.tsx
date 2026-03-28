@@ -136,10 +136,10 @@ const CityPage = ({ cityKey }: CityPageProps) => {
 
           <nav className="hidden items-center gap-2 rounded-full border border-[#1e2124]/10 bg-white/60 p-1 text-sm font-medium text-[#1e2124]/80 shadow-[0_10px_35px_-30px_rgba(0,0,0,0.8)] backdrop-blur-2xl md:flex">
             <button onClick={() => scrollToSection("servicos")} className="rounded-full px-5 py-2.5 transition hover:bg-[#1e2124]/5 hover:text-[#1e2124]">
-              Servicos
+              Serviços
             </button>
             <button onClick={() => scrollToSection("bairros")} className="rounded-full px-5 py-2.5 transition hover:bg-[#1e2124]/5 hover:text-[#1e2124]">
-              Regiao
+              Região
             </button>
             <button onClick={() => scrollToSection("faq")} className="rounded-full px-5 py-2.5 transition hover:bg-[#1e2124]/5 hover:text-[#1e2124]">
               FAQ
@@ -194,7 +194,7 @@ const CityPage = ({ cityKey }: CityPageProps) => {
               <Button
                 onClick={() =>
                   window.open(
-                    `https://wa.me/+5513985994965?text=Ola! Quero um site com SEO local para ${content.cityName}.`,
+                    `https://wa.me/+5513985994965?text=Olá! Quero um site com SEO local para ${content.cityName}.`,
                     "_blank"
                   )
                 }
@@ -204,7 +204,7 @@ const CityPage = ({ cityKey }: CityPageProps) => {
                 <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Button>
               <Button asChild variant="outline" className="rounded-full border-[#1e2124]/20 bg-white/70 px-7 text-[#1e2124]">
-                <Link to="/">Ver portfolio completo</Link>
+                <Link to="/">Ver portfólio completo</Link>
               </Button>
             </div>
           </article>
@@ -215,7 +215,7 @@ const CityPage = ({ cityKey }: CityPageProps) => {
             style={{ transform: `translateY(${scrollY * -0.05}px)` }}
           >
             <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
-              <h2 className="font-display text-2xl">Plano local avancado</h2>
+              <h2 className="font-display text-2xl">Plano local avançado</h2>
               <span className="rounded-full bg-white/10 px-3 py-1 text-xs">Cidade ativa</span>
             </div>
 
@@ -238,7 +238,7 @@ const CityPage = ({ cityKey }: CityPageProps) => {
             <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/75">
               <p className="flex items-center gap-2 text-[#d4a357]">
                 <Sparkles className="h-4 w-4" />
-                Foco em presenca forte em {content.cityName}
+                Foco em presença forte em {content.cityName}
               </p>
             </div>
           </aside>
@@ -246,10 +246,10 @@ const CityPage = ({ cityKey }: CityPageProps) => {
 
         <section id="bairros" className="mx-auto mt-8 grid w-full max-w-7xl gap-6 lg:grid-cols-2" data-deferred-section>
           <article className="rounded-3xl border border-[#1e2124]/10 bg-white/80 p-8 backdrop-blur">
-            <h2 className="font-display text-3xl text-[#131518]">Atendimento na regiao</h2>
+            <h2 className="font-display text-3xl text-[#131518]">Atendimento na região</h2>
             <p className="mt-4 text-sm leading-relaxed text-[#2f353b]/80">
-              Atuamos em {content.cityName} com estrategia digital para empresas locais que desejam aumentar
-              visibilidade, autoridade e geracao de contatos qualificados.
+              Atuamos em {content.cityName} com estratégia digital para empresas locais que desejam aumentar
+              visibilidade, autoridade e geração de contatos qualificados.
             </p>
             <ul className="mt-6 grid grid-cols-1 gap-2 text-sm text-[#2f353b]/90 sm:grid-cols-2">
               {content.neighborhoods.map((n) => (
@@ -276,15 +276,15 @@ const CityPage = ({ cityKey }: CityPageProps) => {
         <section className="mx-auto mt-8 w-full max-w-7xl rounded-3xl border border-[#1e2124]/10 bg-white/80 p-8 backdrop-blur lg:p-10" data-deferred-section>
           <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[#194f45]">Proximo passo</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-[#194f45]">Próximo passo</p>
               <h2 className="mt-2 font-display text-3xl leading-tight text-[#131518] md:text-4xl">
-                Leve sua empresa em {content.cityName} para outro nivel no digital.
+                Leve sua empresa em {content.cityName} para outro nível no digital.
               </h2>
             </div>
             <Button
               onClick={() =>
                 window.open(
-                  `https://wa.me/+5513985994965?text=Ola! Quero criar um projeto premium para ${content.cityName}.`,
+                  `https://wa.me/+5513985994965?text=Olá! Quero criar um projeto premium para ${content.cityName}.`,
                   "_blank"
                 )
               }
@@ -301,7 +301,7 @@ const CityPage = ({ cityKey }: CityPageProps) => {
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 text-sm text-[#2f353b]/85 sm:flex-row sm:items-center sm:justify-between">
           <p className="inline-flex items-center gap-2">
             <Building2 className="h-4 w-4" />
-            Jota R Web - Estrategia local para {content.cityName}
+            Jota R Web - Estratégia local para {content.cityName}
           </p>
           <p>© {new Date().getFullYear()} Jota R Web. Todos os direitos reservados.</p>
         </div>

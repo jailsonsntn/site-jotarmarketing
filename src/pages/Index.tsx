@@ -259,7 +259,7 @@ const Index = () => {
           <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
             <div data-reveal className="reveal space-y-8">
               <span className="inline-flex items-center gap-2 rounded-full border border-[#1e2124]/15 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#1e2124]/80">
-                SEO tecnico, design e implementacao sob medida
+                SEO técnico, design e implementação sob medida
               </span>
 
               <h1 className="font-display text-4xl leading-[1.02] text-[#131518] md:text-6xl lg:text-7xl">
@@ -335,7 +335,7 @@ const Index = () => {
 
                 <div className="mt-6 flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80">
                   <span>Estrutura recomendada</span>
-                  <span className="font-semibold text-[#d4a357]">Codigo sob medida + SEO tecnico</span>
+                  <span className="font-semibold text-[#d4a357]">Código sob medida + SEO técnico</span>
                 </div>
               </div>
             </div>
@@ -503,7 +503,7 @@ const Index = () => {
                 </div>
                 <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3">
                   <span>Entrega</span>
-                  <span className="font-semibold text-[#d4a357]">Design + implementacao + publicacao</span>
+                  <span className="font-semibold text-[#d4a357]">Design + implementação + publicação</span>
                 </div>
                 <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3">
                   <span>Suporte inicial</span>
