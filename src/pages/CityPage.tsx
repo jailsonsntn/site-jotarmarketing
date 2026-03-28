@@ -52,7 +52,7 @@ const CityPage = ({ cityKey }: CityPageProps) => {
         {
           "@type": "Service",
           name: `Criacao de Sites em ${content.cityName}`,
-          serviceType: "Desenvolvimento de sites profissionais",
+          serviceType: "Sites institucionais, landing pages e paginas sob medida",
           provider: {
             "@type": "ProfessionalService",
             name: "Jota R Web",
@@ -224,7 +224,7 @@ const CityPage = ({ cityKey }: CityPageProps) => {
                 "Pagina local exclusiva com conteudo proprio",
                 "Arquitetura semantica para buscas regionais",
                 "Meta tags e dados estruturados por cidade",
-                "Copy orientada a conversao local",
+                "Implementacao sob medida com SEO local especializado",
               ].map((item) => (
                 <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-4">
                   <p className="flex items-start gap-3 text-sm text-white/85">

@@ -2,7 +2,6 @@
 import { useEffect, useRef, type MouseEvent } from 'react';
 import {
   ArrowUpRight,
-  Code2,
   Gauge,
   Layers3,
   MessageCircle,
@@ -90,7 +89,7 @@ const Index = () => {
     },
     {
       title: 'Performance e Core Web Vitals',
-      description: 'Código enxuto, carregamento rápido e boas práticas para reduzir abandono.',
+      description: 'Estrutura leve, carregamento rápido e boas práticas para reduzir abandono.',
       icon: Gauge,
     },
     {
@@ -100,7 +99,7 @@ const Index = () => {
     },
     {
       title: 'SEO Técnico de Base',
-      description: 'Estrutura semântica, metadata e fundamentos técnicos para crescer orgânico.',
+      description: 'Estrutura semântica, metadata e fundamentos técnicos para crescer no orgânico.',
       icon: Sparkles,
     },
     {
@@ -123,8 +122,8 @@ const Index = () => {
     },
     {
       step: '03',
-      title: 'Desenvolvimento e QA',
-      text: 'Implementação com foco em performance, acessibilidade e confiabilidade.',
+      title: 'Implementação e QA',
+      text: 'Implementação sob medida com foco em SEO, performance, acessibilidade e confiabilidade.',
     },
     {
       step: '04',
@@ -134,12 +133,12 @@ const Index = () => {
   ];
 
   const recentProjects = [
-    'https://masterpiscinaslitoral.com.br/',
-    'https://www.acmconstrucaoereformas.com.br/',
-    'https://joaocolussiadvocacia.com.br/',
-    'https://www.correahousesmobiliados.com.br/',
-    'https://www.tvdecor.com.py/',
-    'https://construtorasantos.vercel.app/',
+    { name: 'Master Piscinas Litoral', url: 'https://masterpiscinaslitoral.com.br/' },
+    { name: 'ACM Construcao e Reformas', url: 'https://www.acmconstrucaoereformas.com.br/' },
+    { name: 'Joao Colussi Advocacia', url: 'https://joaocolussiadvocacia.com.br/' },
+    { name: 'Correa House', url: 'https://www.correahousesmobiliados.com.br/' },
+    { name: 'TV Decor', url: 'https://www.tvdecor.com.py/' },
+    { name: 'Construtora Santos', url: 'https://construtorasantos.vercel.app/' },
   ];
 
   const handleHomebarMouseMove = (event: MouseEvent<HTMLDivElement>) => {
@@ -261,8 +260,7 @@ const Index = () => {
           <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
             <div data-reveal className="reveal space-y-8">
               <span className="inline-flex items-center gap-2 rounded-full border border-[#1e2124]/15 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#1e2124]/80">
-                <Code2 className="h-3.5 w-3.5" />
-                Desenvolvimento de sites com padrão premium
+                SEO tecnico, design e implementacao sob medida
               </span>
 
               <h1 className="font-display text-4xl leading-[1.02] text-[#131518] md:text-6xl lg:text-7xl">
@@ -337,8 +335,8 @@ const Index = () => {
                 </div>
 
                 <div className="mt-6 flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80">
-                  <span>Stack recomendada</span>
-                  <span className="font-semibold text-[#d4a357]">React + SEO técnico</span>
+                  <span>Estrutura recomendada</span>
+                  <span className="font-semibold text-[#d4a357]">Codigo sob medida + SEO tecnico</span>
                 </div>
               </div>
             </div>
@@ -411,12 +409,10 @@ const Index = () => {
 
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {recentProjects.map((project, idx) => {
-                const host = project.replace('https://', '').replace('http://', '').replace(/\/$/, '');
-
                 return (
                   <a
-                    key={project}
-                    href={project}
+                    key={project.url}
+                    href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     data-reveal
@@ -425,7 +421,7 @@ const Index = () => {
                     }`}
                   >
                     <p className="text-xs uppercase tracking-[0.14em] text-[#194f45]">Projeto publicado</p>
-                    <p className="mt-2 font-display text-xl text-[#131518]">{host}</p>
+                    <p className="mt-2 font-display text-xl text-[#131518]">{project.name}</p>
                     <span className="mt-4 inline-flex items-center text-sm font-semibold text-[#bf5b2c]">
                       Visitar site
                       <ArrowUpRight className="ml-1 h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -508,7 +504,7 @@ const Index = () => {
                 </div>
                 <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3">
                   <span>Entrega</span>
-                  <span className="font-semibold text-[#d4a357]">Design + código + publicação</span>
+                  <span className="font-semibold text-[#d4a357]">Design + implementacao + publicacao</span>
                 </div>
                 <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3">
                   <span>Suporte inicial</span>

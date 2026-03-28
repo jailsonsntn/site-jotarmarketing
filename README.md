@@ -1,69 +1,38 @@
-# Welcome to your project
+# Jota R Marketing
 
-## Project info
+Site institucional com foco em apresentacao comercial, SEO tecnico e paginas locais para captacao organica.
 
+## Ambiente local
 
+Requisitos:
 
-## How can I edit this code?
+- Node.js 20+
+- npm
 
-There are several ways of editing your application.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Jota R Marketing.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Comandos principais:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+npm install
 npm run dev
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+## Estrutura do projeto
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- src/pages: paginas principais e paginas locais por cidade
+- src/data: conteudo SEO reutilizado entre paginas
+- src/components: componentes visuais compartilhados
+- public/uploads: ativos otimizados usados no site
 
-**Use GitHub Codespaces**
+## Direcao tecnica
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+O projeto prioriza:
 
-## What technologies are used for this project?
+- codigo sob medida para cada pagina
+- SEO tecnico e metadados por rota
+- performance e Core Web Vitals
+- layout responsivo com foco comercial
 
-This project is built with:
+## Publicacao
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Para publicar ou compartilhar seu projeto, acesse [Jota R Marketing](https://www.instagram.com/jotar.marketing/) e entre em contato para mais informações.
-
-## Posso conectar um domínio personalizado ao meu projeto Jota R Marketing?
-
-Sim, você pode!
-
-Para conectar um domínio, entre em contato pelo [Instagram](https://www.instagram.com/jotar.marketing/) para receber orientações personalizadas.
-
-# Todas as menções à plataforma Jota R Marketing foram atualizadas neste README.
-
-# trigger build
+O deploy atual segue a configuracao presente no projeto para hospedagem estatica.
