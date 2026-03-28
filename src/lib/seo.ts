@@ -1,4 +1,4 @@
-export const SITE_URL = "https://jotarmarketing.com.br";
+export const SITE_URL = "https://www.jotarmarketing.com.br";
 
 export const setMetaByName = (name: string, content: string) => {
   let tag = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;

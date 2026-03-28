@@ -28,4 +28,4 @@ Allow: /
 User-agent: Twitterbot
 Allow: /
 
-Sitemap: https://jotarmarketing.com.br/sitemap.xml
+Sitemap: https://www.jotarmarketing.com.br/sitemap.xml
