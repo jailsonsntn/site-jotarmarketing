@@ -26,7 +26,7 @@ const CityPage = ({ cityKey }: CityPageProps) => {
 
     const canonicalUrl = `${SITE_URL}/${content.slug}`;
 
-    document.title = `${content.title} | SEO Local`;
+    document.title = content.title;
     setMetaByName("description", content.description);
     setMetaByName("robots", "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1");
 
@@ -51,11 +51,11 @@ const CityPage = ({ cityKey }: CityPageProps) => {
       "@graph": [
         {
           "@type": "Service",
-          name: `Criacao de Sites em ${content.cityName}`,
-          serviceType: "Sites institucionais, landing pages e paginas sob medida",
+          name: `Criação de Sites em ${content.cityName}`,
+          serviceType: "Sites institucionais, landing pages e páginas sob medida",
           provider: {
             "@type": "ProfessionalService",
-            name: "Jota R Web",
+            name: "JR Marketing",
             url: SITE_URL,
           },
           areaServed: {
@@ -153,7 +153,7 @@ const CityPage = ({ cityKey }: CityPageProps) => {
             <Button
               onClick={() =>
                 window.open(
-                  `https://wa.me/+5513985994965?text=Ola! Quero um site profissional para ${content.cityName}.`,
+                  `https://wa.me/+5513985994965?text=Olá! Quero um site profissional para ${content.cityName}.`,
                   "_blank"
                 )
               }
@@ -221,10 +221,10 @@ const CityPage = ({ cityKey }: CityPageProps) => {
 
             <div className="space-y-3">
               {[
-                "Pagina local exclusiva com conteudo proprio",
-                "Arquitetura semantica para buscas regionais",
+                "Página local exclusiva com conteúdo próprio",
+                "Arquitetura semântica para buscas regionais",
                 "Meta tags e dados estruturados por cidade",
-                "Implementacao sob medida com SEO local especializado",
+                "Implementação sob medida com SEO local especializado",
               ].map((item) => (
                 <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-4">
                   <p className="flex items-start gap-3 text-sm text-white/85">

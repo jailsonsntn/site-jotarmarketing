@@ -50,25 +50,24 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    document.title =
-      'Jota R Web | Criacao de Sites Profissionais, SEO Tecnico e Landing Pages de Alta Conversao';
+    document.title = 'JR Marketing | Desenvolvimento de sites';
     setCanonical(SITE_URL);
 
     setMetaByName(
       'description',
-      'Desenvolvimento de sites premium para empresas: criação de sites profissionais, landing pages de alta conversão, SEO técnico, performance e UX avançada.'
+      'JR Marketing: desenvolvimento de sites profissionais, landing pages de alta conversão, SEO técnico e performance para empresas que querem crescer no Google.'
     );
     setMetaByName('robots', 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1');
-    setMetaByProperty('og:title', 'Jota R Web | Criacao de Sites Premium para Empresas');
+    setMetaByProperty('og:title', 'JR Marketing | Desenvolvimento de sites');
     setMetaByProperty(
       'og:description',
-      'Sites profissionais com UX sofisticada, SEO técnico e alta performance para crescer no Google, Bing e nas IAs.'
+      'Desenvolvimento de sites profissionais com SEO técnico, performance e foco em geração de negócios.'
     );
     setMetaByProperty('og:url', SITE_URL);
-    setMetaByName('twitter:title', 'Jota R Web | Criacao de Sites Profissionais');
+    setMetaByName('twitter:title', 'JR Marketing | Desenvolvimento de sites');
     setMetaByName(
       'twitter:description',
-      'Sites profissionais com SEO técnico, performance e UX avançada para gerar mais negócios.'
+      'Sites profissionais com SEO técnico, performance e foco em geração de negócios.'
     );
   }, []);
 

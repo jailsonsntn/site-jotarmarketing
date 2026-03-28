@@ -1,5 +1,37 @@
 {
   "version": 2,
+  "redirects": [
+    {
+      "source": "/praiagrande/",
+      "destination": "/praiagrande",
+      "permanent": true
+    },
+    {
+      "source": "/santos/",
+      "destination": "/santos",
+      "permanent": true
+    },
+    {
+      "source": "/saovicente/",
+      "destination": "/saovicente",
+      "permanent": true
+    },
+    {
+      "source": "/cubatao/",
+      "destination": "/cubatao",
+      "permanent": true
+    },
+    {
+      "source": "/guaruja/",
+      "destination": "/guaruja",
+      "permanent": true
+    },
+    {
+      "source": "/bertioga/",
+      "destination": "/bertioga",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

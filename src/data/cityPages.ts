@@ -16,12 +16,12 @@ export const CITY_PAGES: Record<string, CityPageContent> = {
     slug: "praiagrande",
     cityName: "Praia Grande",
     fullName: "Praia Grande - SP",
-    title: "Criação de Sites em Praia Grande | Jota R Web",
+    title: "Criação de Sites em Praia Grande | JR Marketing",
     description:
-      "Criacao de sites profissionais em Praia Grande com SEO tecnico especializado, performance e estrutura sob medida para gerar contatos locais.",
+      "Criação de sites profissionais em Praia Grande, com SEO técnico especializado, performance e estrutura sob medida para gerar contatos locais.",
     heading: "Criação de Sites em Praia Grande com SEO Local",
     intro:
-      "Desenvolvemos sites sob medida para negocios de Praia Grande que querem aparecer no Google e converter visitantes em clientes reais.",
+      "Desenvolvemos sites sob medida para negócios de Praia Grande que querem aparecer no Google e converter visitantes em clientes reais.",
     seoFocus: ["criação de sites em Praia Grande", "site profissional Praia Grande", "SEO local Praia Grande"],
     neighborhoods: ["Canto do Forte", "Boqueirão", "Ocian", "Guilhermina", "Tupi"],
     faq: [
@@ -39,12 +39,12 @@ export const CITY_PAGES: Record<string, CityPageContent> = {
     slug: "santos",
     cityName: "Santos",
     fullName: "Santos - SP",
-    title: "Criação de Sites em Santos | Jota R Web",
+    title: "Criação de Sites em Santos | JR Marketing",
     description:
-      "Agencia de criacao de sites em Santos. Entregamos paginas premium com SEO tecnico, UX e alta performance para negocios locais.",
+      "Agência de criação de sites em Santos. Entregamos páginas premium com SEO técnico, UX e alta performance para negócios locais.",
     heading: "Desenvolvimento de Sites em Santos para Empresas",
     intro:
-      "Projetamos experiencias digitais estrategicas para empresas de Santos que querem ampliar autoridade e gerar mais oportunidades.",
+      "Projetamos experiências digitais estratégicas para empresas de Santos que querem ampliar autoridade e gerar mais oportunidades.",
     seoFocus: ["criação de sites em Santos", "desenvolvimento web Santos", "site empresarial Santos"],
     neighborhoods: ["Gonzaga", "Aparecida", "Ponta da Praia", "Embare", "Marape"],
     faq: [
@@ -62,12 +62,12 @@ export const CITY_PAGES: Record<string, CityPageContent> = {
     slug: "saovicente",
     cityName: "São Vicente",
     fullName: "São Vicente - SP",
-    title: "Criação de Sites em São Vicente | Jota R Web",
+    title: "Criação de Sites em São Vicente | JR Marketing",
     description:
-      "Criacao de sites em Sao Vicente com foco em SEO local, performance e conversao para pequenos e medios negocios.",
+      "Criação de sites em São Vicente, com foco em SEO local, performance e conversão para pequenos e médios negócios.",
     heading: "Site Profissional em São Vicente com Alta Conversão",
     intro:
-      "Ajudamos empresas de Sao Vicente a ganhar presenca digital forte com paginas otimizadas para gerar contato e vendas.",
+      "Ajudamos empresas de São Vicente a ganhar presença digital forte com páginas otimizadas para gerar contato e vendas.",
     seoFocus: ["site em São Vicente", "criação de site São Vicente", "SEO em São Vicente"],
     neighborhoods: ["Centro", "Itararé", "Boa Vista", "Catiapoá", "Parque Bitaru"],
     faq: [
@@ -85,12 +85,12 @@ export const CITY_PAGES: Record<string, CityPageContent> = {
     slug: "cubatao",
     cityName: "Cubatão",
     fullName: "Cubatão - SP",
-    title: "Criação de Sites em Cubatão | Jota R Web",
+    title: "Criação de Sites em Cubatão | JR Marketing",
     description:
-      "Criacao de sites em Cubatao para industrias, comercio e servicos com SEO tecnico e desempenho de alto nivel.",
+      "Criação de sites em Cubatão para indústrias, comércio e serviços, com SEO técnico e desempenho de alto nível.",
     heading: "Criação de Sites em Cubatão com Estratégia Local",
     intro:
-      "Construimos sites para empresas de Cubatao com foco em credibilidade online e geracao de oportunidades comerciais.",
+      "Construímos sites para empresas de Cubatão com foco em credibilidade online e geração de oportunidades comerciais.",
     seoFocus: ["criação de sites Cubatão", "site profissional Cubatão", "agência web Cubatão"],
     neighborhoods: ["Centro", "Jardim Casqueiro", "Vila Nova", "Vila dos Pescadores", "Parque São Luís"],
     faq: [
@@ -108,12 +108,12 @@ export const CITY_PAGES: Record<string, CityPageContent> = {
     slug: "guaruja",
     cityName: "Guarujá",
     fullName: "Guarujá - SP",
-    title: "Criação de Sites em Guarujá | Jota R Web",
+    title: "Criação de Sites em Guarujá | JR Marketing",
     description:
-      "Criacao de sites em Guaruja para empresas de turismo, comercio e servicos. Estrutura premium com SEO e foco em resultados.",
+      "Criação de sites em Guarujá para empresas de turismo, comércio e serviços. Estrutura premium com SEO e foco em resultados.",
     heading: "Desenvolvimento Web em Guarujá para Crescer no Digital",
     intro:
-      "Criamos sites de alto impacto para negocios de Guaruja com estrategia de conteudo, UX e otimizacao para buscas locais.",
+      "Criamos sites de alto impacto para negócios de Guarujá, com estratégia de conteúdo, UX e otimização para buscas locais.",
     seoFocus: ["criação de sites Guarujá", "site para empresa no Guarujá", "SEO local Guarujá"],
     neighborhoods: ["Pitangueiras", "Enseada", "Asturias", "Pernambuco", "Tombo"],
     faq: [
@@ -131,12 +131,12 @@ export const CITY_PAGES: Record<string, CityPageContent> = {
     slug: "bertioga",
     cityName: "Bertioga",
     fullName: "Bertioga - SP",
-    title: "Criação de Sites em Bertioga | Jota R Web",
+    title: "Criação de Sites em Bertioga | JR Marketing",
     description:
-      "Criacao de sites profissionais em Bertioga com design moderno, SEO local e performance para gerar mais contatos e vendas.",
+      "Criação de sites profissionais em Bertioga, com design moderno, SEO local e performance para gerar mais contatos e vendas.",
     heading: "Site Profissional em Bertioga com SEO Avançado",
     intro:
-      "Desenvolvemos sites para empresas de Bertioga com estrutura estrategica para atrair clientes da regiao e fortalecer a marca.",
+      "Desenvolvemos sites para empresas de Bertioga, com estrutura estratégica para atrair clientes da região e fortalecer a marca.",
     seoFocus: ["criação de sites Bertioga", "site profissional Bertioga", "desenvolvimento web Bertioga"],
     neighborhoods: ["Centro", "Riviera de São Lourenço", "Indaia", "Vista Linda", "Boraceia"],
     faq: [
