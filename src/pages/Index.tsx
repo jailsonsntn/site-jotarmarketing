@@ -66,6 +66,10 @@ const Index = () => {
   const tickerWords = isMobile ? HOME_FEATURE_WORDS.slice(0, 12) : HOME_FEATURE_WORDS;
 
   useEffect(() => {
+    if (isMobile) {
+      return;
+    }
+
     let observer: IntersectionObserver | null = null;
     const sections = Array.from(document.querySelectorAll('[data-reveal]'));
     const idleHandle = requestIdle(() => {
@@ -294,41 +298,65 @@ const Index = () => {
             </div>
 
             <div data-reveal className="reveal reveal-delay-1">
-              <div
-                className="relative overflow-hidden rounded-[2rem] border border-[#1e2124]/10 bg-[#121417] p-6 text-[#f2f3ed] shadow-[0_30px_80px_-36px_rgba(0,0,0,0.8)]"
-                style={isMobile ? undefined : { transform: `translateY(${scrollY * -0.06}px)` }}
-              >
-                <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-4">
-                  <span className="font-display text-lg">Preview de Entrega</span>
-                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs">Projeto ativo</span>
-                </div>
+              {isMobile ? (
+                <div className="relative overflow-hidden rounded-[2rem] border border-[#1e2124]/10 bg-[#121417] p-5 text-[#f2f3ed] shadow-[0_20px_50px_-34px_rgba(0,0,0,0.75)]">
+                  <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
+                    <span className="font-display text-base">Preview de Entrega</span>
+                    <span className="rounded-full bg-white/10 px-3 py-1 text-[11px]">Ativo</span>
+                  </div>
 
-                <div className="space-y-4">
-                  <div className="rounded-2xl bg-white/5 p-4">
-                    <p className="text-xs uppercase tracking-wider text-[#d4a357]">Arquitetura</p>
-                    <p className="mt-1 text-sm text-white/80">
-                      Estrutura modular para escalar páginas e integrar funis de marketing.
-                    </p>
-                  </div>
-                  <div className="rounded-2xl bg-white/5 p-4">
-                    <p className="text-xs uppercase tracking-wider text-[#d4a357]">Experiência</p>
-                    <p className="mt-1 text-sm text-white/80">
-                      Fluxo claro de navegação para reduzir fricção e elevar conversão em cada etapa.
-                    </p>
-                  </div>
-                  <div className="rounded-2xl bg-white/5 p-4">
-                    <p className="text-xs uppercase tracking-wider text-[#d4a357]">Performance</p>
-                    <p className="mt-1 text-sm text-white/80">
-                      Otimização para carregamento rápido e nota alta em Core Web Vitals.
-                    </p>
+                  <div className="grid gap-3">
+                    <div className="rounded-2xl bg-white/5 p-4">
+                      <p className="text-xs uppercase tracking-wider text-[#d4a357]">Arquitetura + SEO</p>
+                      <p className="mt-1 text-sm leading-relaxed text-white/80">
+                        Estrutura leve para carregar mais rápido e converter melhor no celular.
+                      </p>
+                    </div>
+                    <div className="rounded-2xl bg-white/5 p-4">
+                      <p className="text-xs uppercase tracking-wider text-[#d4a357]">Entrega enxuta</p>
+                      <p className="mt-1 text-sm leading-relaxed text-white/80">
+                        Menos camadas visuais acima da dobra, com foco no conteúdo principal.
+                      </p>
+                    </div>
                   </div>
                 </div>
+              ) : (
+                <div
+                  className="relative overflow-hidden rounded-[2rem] border border-[#1e2124]/10 bg-[#121417] p-6 text-[#f2f3ed] shadow-[0_30px_80px_-36px_rgba(0,0,0,0.8)]"
+                  style={{ transform: `translateY(${scrollY * -0.06}px)` }}
+                >
+                  <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-4">
+                    <span className="font-display text-lg">Preview de Entrega</span>
+                    <span className="rounded-full bg-white/10 px-3 py-1 text-xs">Projeto ativo</span>
+                  </div>
 
-                <div className="mt-6 flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80">
-                  <span>Estrutura recomendada</span>
-                  <span className="font-semibold text-[#d4a357]">Código sob medida + SEO técnico</span>
+                  <div className="space-y-4">
+                    <div className="rounded-2xl bg-white/5 p-4">
+                      <p className="text-xs uppercase tracking-wider text-[#d4a357]">Arquitetura</p>
+                      <p className="mt-1 text-sm text-white/80">
+                        Estrutura modular para escalar páginas e integrar funis de marketing.
+                      </p>
+                    </div>
+                    <div className="rounded-2xl bg-white/5 p-4">
+                      <p className="text-xs uppercase tracking-wider text-[#d4a357]">Experiência</p>
+                      <p className="mt-1 text-sm text-white/80">
+                        Fluxo claro de navegação para reduzir fricção e elevar conversão em cada etapa.
+                      </p>
+                    </div>
+                    <div className="rounded-2xl bg-white/5 p-4">
+                      <p className="text-xs uppercase tracking-wider text-[#d4a357]">Performance</p>
+                      <p className="mt-1 text-sm text-white/80">
+                        Otimização para carregamento rápido e nota alta em Core Web Vitals.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80">
+                    <span>Estrutura recomendada</span>
+                    <span className="font-semibold text-[#d4a357]">Código sob medida + SEO técnico</span>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 
@@ -337,16 +365,29 @@ const Index = () => {
             className="reveal reveal-delay-2 glass-surface mx-auto mt-10 w-full max-w-5xl overflow-hidden rounded-2xl p-3"
             style={isMobile ? undefined : { transform: `translateY(${scrollY * -0.02}px)` }}
           >
-            <div className="feature-ticker">
-              {[...tickerWords, ...tickerWords].map((item, idx) => (
-                <span
-                  key={`${item}-${idx}`}
-                  className="glass-chip mr-2 inline-flex rounded-xl px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#1e2124]/80"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
+            {isMobile ? (
+              <div className="flex flex-wrap justify-center gap-2">
+                {tickerWords.slice(0, 6).map((item) => (
+                  <span
+                    key={item}
+                    className="glass-chip inline-flex rounded-xl px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#1e2124]/80"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            ) : (
+              <div className="feature-ticker">
+                {[...tickerWords, ...tickerWords].map((item, idx) => (
+                  <span
+                    key={`${item}-${idx}`}
+                    className="glass-chip mr-2 inline-flex rounded-xl px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#1e2124]/80"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 

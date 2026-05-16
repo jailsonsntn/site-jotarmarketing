@@ -259,6 +259,7 @@
 
     .mesh-orb {
       filter: blur(34px);
+      animation: none;
     }
 
     .mesh-orb-2,
@@ -275,6 +276,18 @@
       transition:
         opacity 420ms ease,
         transform 420ms ease;
+    }
+
+    .reveal,
+    .reveal-visible {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    [data-deferred-section] {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 700px;
     }
   }
 
