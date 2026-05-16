@@ -14,6 +14,7 @@ import {
 import PublicNavbar from '@/components/PublicNavbar';
 import SiteFooter from '@/components/SiteFooter';
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { usePageScrollState } from '@/hooks/usePageScrollState';
 import { cancelIdle, requestIdle } from '@/lib/idle';
 import { SITE_URL, setCanonical, setMetaByName, setMetaByProperty } from '@/lib/seo';
@@ -60,7 +61,9 @@ const HOME_FEATURE_WORDS = [
 ];
 
 const Index = () => {
-  const { scrollY, scrollProgress } = usePageScrollState(12);
+  const isMobile = useIsMobile();
+  const { scrollY, scrollProgress } = usePageScrollState(12, !isMobile);
+  const tickerWords = isMobile ? HOME_FEATURE_WORDS.slice(0, 12) : HOME_FEATURE_WORDS;
 
   useEffect(() => {
     let observer: IntersectionObserver | null = null;
@@ -75,8 +78,8 @@ const Index = () => {
           });
         },
         {
-          threshold: 0.2,
-          rootMargin: '0px 0px -10% 0px',
+          threshold: isMobile ? 0.08 : 0.2,
+          rootMargin: isMobile ? '0px 0px -4% 0px' : '0px 0px -10% 0px',
         }
       );
 
@@ -87,7 +90,7 @@ const Index = () => {
       cancelIdle(idleHandle);
       observer?.disconnect();
     };
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     document.title = 'Criação de Sites Premium e SEO Técnico | JR Marketing';
@@ -213,32 +216,34 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-transparent text-[#1e2124]">
-      <div className="fixed left-0 right-0 top-0 z-[70] h-[3px] bg-black/5">
-        <div
-          className="h-full bg-[linear-gradient(90deg,#194f45_0%,#bf5b2c_45%,#d4a357_100%)] transition-[width] duration-150"
-          style={{ width: `${scrollProgress}%` }}
-        />
-      </div>
+      {!isMobile ? (
+        <div className="fixed left-0 right-0 top-0 z-[70] h-[3px] bg-black/5">
+          <div
+            className="h-full bg-[linear-gradient(90deg,#194f45_0%,#bf5b2c_45%,#d4a357_100%)] transition-[width] duration-150"
+            style={{ width: `${scrollProgress}%` }}
+          />
+        </div>
+      ) : null}
 
       <div className="mesh-gradient-bg pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div
           className="mesh-orb mesh-orb-1"
-          style={{ transform: `translate3d(${scrollY * -0.04}px, ${scrollY * 0.08}px, 0)` }}
+          style={isMobile ? undefined : { transform: `translate3d(${scrollY * -0.04}px, ${scrollY * 0.08}px, 0)` }}
         />
         <div
           className="mesh-orb mesh-orb-2"
-          style={{ transform: `translate3d(${scrollY * 0.05}px, ${scrollY * -0.05}px, 0)` }}
+          style={isMobile ? undefined : { transform: `translate3d(${scrollY * 0.05}px, ${scrollY * -0.05}px, 0)` }}
         />
         <div
           className="mesh-orb mesh-orb-3"
-          style={{ transform: `translate3d(${scrollY * -0.03}px, ${scrollY * 0.04}px, 0)` }}
+          style={isMobile ? undefined : { transform: `translate3d(${scrollY * -0.03}px, ${scrollY * 0.04}px, 0)` }}
         />
       </div>
 
       <PublicNavbar transparent />
 
       <main>
-        <section id="inicio" className="relative overflow-hidden px-5 pb-12 pt-36 lg:px-8 lg:pb-14 lg:pt-44">
+        <section id="inicio" className="relative overflow-hidden px-5 pb-10 pt-28 lg:px-8 lg:pb-14 lg:pt-44">
           <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
             <div data-reveal className="reveal space-y-8">
               <span className="inline-flex items-center gap-2 rounded-full border border-[#1e2124]/15 bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#1e2124]/80">
@@ -254,33 +259,33 @@ const Index = () => {
                 crescer com presença digital de alto nível.
               </p>
 
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-2 sm:flex-row sm:gap-3">
                 <Button
                   onClick={() => scrollToSection('contato')}
-                  className="group rounded-full bg-[#bf5b2c] px-7 py-6 text-base font-semibold text-white hover:bg-[#a84f25]"
+                  className="group rounded-full bg-[#bf5b2c] px-5 py-4 text-sm font-semibold text-white hover:bg-[#a84f25] sm:px-7 sm:py-6 sm:text-base"
                 >
                   Quero um site que vende
                   <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Button>
-                <Button asChild variant="outline" className="rounded-full border-[#1e2124]/20 bg-white/70 px-7 py-6 text-base text-[#1e2124] hover:bg-white">
+                <Button asChild variant="outline" className="rounded-full border-[#1e2124]/20 bg-white/70 px-5 py-4 text-sm text-[#1e2124] hover:bg-white sm:px-7 sm:py-6 sm:text-base">
                   <Link to="/orcamento">Ir para Orçamento</Link>
                 </Button>
                 <Button
                   variant="outline"
                   onClick={() => scrollToSection('servicos')}
-                  className="rounded-full border-[#1e2124]/20 bg-white/70 px-7 py-6 text-base text-[#1e2124] hover:bg-white"
+                  className="rounded-full border-[#1e2124]/20 bg-white/70 px-5 py-4 text-sm text-[#1e2124] hover:bg-white sm:px-7 sm:py-6 sm:text-base"
                 >
                   Ver serviços
                 </Button>
               </div>
 
-              <div className="grid max-w-xl grid-cols-3 gap-3">
+              <div className="grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-3">
                 {[
                   ['+120', 'Projetos entregues'],
                   ['98%', 'Clientes satisfeitos'],
                   ['< 2.0s', 'Tempo médio de carga'],
                 ].map(([value, label]) => (
-                  <div key={label} className="rounded-2xl border border-[#1e2124]/10 bg-white/70 px-4 py-4 backdrop-blur">
+                  <div key={label} className="glass-surface rounded-2xl px-4 py-4">
                     <p className="font-display text-2xl text-[#131518]">{value}</p>
                     <p className="text-xs text-[#414952]/80">{label}</p>
                   </div>
@@ -291,7 +296,7 @@ const Index = () => {
             <div data-reveal className="reveal reveal-delay-1">
               <div
                 className="relative overflow-hidden rounded-[2rem] border border-[#1e2124]/10 bg-[#121417] p-6 text-[#f2f3ed] shadow-[0_30px_80px_-36px_rgba(0,0,0,0.8)]"
-                style={{ transform: `translateY(${scrollY * -0.06}px)` }}
+                style={isMobile ? undefined : { transform: `translateY(${scrollY * -0.06}px)` }}
               >
                 <div className="mb-6 flex items-center justify-between border-b border-white/10 pb-4">
                   <span className="font-display text-lg">Preview de Entrega</span>
@@ -330,10 +335,10 @@ const Index = () => {
           <div
             data-reveal
             className="reveal reveal-delay-2 glass-surface mx-auto mt-10 w-full max-w-5xl overflow-hidden rounded-2xl p-3"
-            style={{ transform: `translateY(${scrollY * -0.02}px)` }}
+            style={isMobile ? undefined : { transform: `translateY(${scrollY * -0.02}px)` }}
           >
             <div className="feature-ticker">
-              {[...HOME_FEATURE_WORDS, ...HOME_FEATURE_WORDS].map((item, idx) => (
+              {[...tickerWords, ...tickerWords].map((item, idx) => (
                 <span
                   key={`${item}-${idx}`}
                   className="glass-chip mr-2 inline-flex rounded-xl px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#1e2124]/80"
@@ -345,7 +350,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="servicos" className="px-5 pb-24 pt-10 lg:px-8 lg:pt-12">
+        <section id="servicos" className="px-5 pb-16 pt-10 lg:px-8 lg:pb-24 lg:pt-12">
           <div className="mx-auto w-full max-w-7xl">
             <div data-reveal className="reveal mb-12 max-w-3xl">
               <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[#194f45]">Soluções completas</p>
@@ -387,7 +392,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="faq" className="px-5 py-24 lg:px-8" data-deferred-section>
+        <section id="faq" className="px-5 py-16 lg:px-8 lg:py-24" data-deferred-section>
           <div className="mx-auto w-full max-w-7xl">
             <div data-reveal className="reveal mb-12 max-w-3xl">
               <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[#194f45]">FAQ</p>
@@ -413,7 +418,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="projetos" className="px-5 py-24 lg:px-8" data-deferred-section>
+        <section id="projetos" className="px-5 py-16 lg:px-8 lg:py-24" data-deferred-section>
           <div className="mx-auto w-full max-w-7xl">
             <div data-reveal className="reveal mb-12 max-w-3xl">
               <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[#194f45]">Portfólio em produção</p>
@@ -448,7 +453,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="processo" className="bg-[#121417] px-5 py-24 text-[#f2f3ed] lg:px-8" data-deferred-section>
+        <section id="processo" className="bg-[#121417] px-5 py-16 text-[#f2f3ed] lg:px-8 lg:py-24" data-deferred-section>
           <div className="mx-auto w-full max-w-7xl">
             <div data-reveal className="reveal mb-14 max-w-3xl">
               <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[#d4a357]">Método</p>
@@ -475,19 +480,19 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="contato" className="px-5 py-24 lg:px-8" data-deferred-section>
-          <div className="mx-auto grid w-full max-w-7xl gap-8 rounded-[2rem] border border-[#1e2124]/10 bg-white/80 p-8 shadow-[0_25px_60px_-35px_rgba(0,0,0,0.65)] backdrop-blur lg:grid-cols-[1.1fr_0.9fr] lg:p-12">
+        <section id="contato" className="px-5 py-16 lg:px-8 lg:py-24" data-deferred-section>
+          <div className="mx-auto grid w-full max-w-7xl gap-8 rounded-[2rem] border border-[#1e2124]/10 bg-white/80 p-5 shadow-[0_25px_60px_-35px_rgba(0,0,0,0.65)] backdrop-blur sm:p-8 lg:grid-cols-[1.1fr_0.9fr] lg:p-12">
             <div data-reveal className="reveal">
               <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[#194f45]">Vamos construir seu projeto</p>
-              <h2 className="font-display text-3xl leading-tight text-[#131518] md:text-5xl">
+              <h2 className="max-w-[14ch] font-display text-2xl leading-tight text-[#131518] sm:max-w-none sm:text-3xl md:text-5xl">
                 Seu site pode se tornar seu melhor vendedor em poucos dias.
               </h2>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-[#2f353b]/80">
+              <p className="mt-4 max-w-xl text-sm leading-relaxed text-[#2f353b]/80 sm:mt-5 sm:text-base">
                 Conte seu momento atual e os objetivos de crescimento. Montamos uma proposta técnica com
                 escopo claro, prazo realista e foco total em resultado.
               </p>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Button
                   onClick={() =>
                     window.open(
@@ -495,35 +500,35 @@ const Index = () => {
                       '_blank'
                     )
                   }
-                  className="rounded-full bg-[#194f45] px-7 py-6 text-base text-white hover:bg-[#163f38]"
+                  className="w-full rounded-full bg-[#194f45] px-5 py-5 text-sm text-white hover:bg-[#163f38] sm:w-auto sm:px-7 sm:py-6 sm:text-base"
                 >
                   <MessageCircle className="mr-2 h-4 w-4" />
-                  Receber proposta pelo WhatsApp
+                  <span className="whitespace-normal text-left sm:whitespace-nowrap">Receber proposta pelo WhatsApp</span>
                 </Button>
                 <Button
                   variant="outline"
                   onClick={() => window.open('mailto:falecom@jotarmarketing.com.br', '_blank')}
-                  className="rounded-full border-[#1e2124]/20 bg-transparent px-7 py-6 text-base text-[#1e2124]"
+                  className="w-full rounded-full border-[#1e2124]/20 bg-transparent px-5 py-5 text-sm text-[#1e2124] sm:w-auto sm:px-7 sm:py-6 sm:text-base"
                 >
                   Enviar e-mail
                 </Button>
               </div>
             </div>
 
-            <div data-reveal className="reveal reveal-delay-1 rounded-3xl bg-[#121417] p-6 text-[#f2f3ed]">
-              <h3 className="font-display text-2xl">Resumo da proposta</h3>
-              <div className="mt-6 space-y-4 text-sm text-white/80">
-                <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3">
-                  <span>Prazo estimado</span>
-                  <span className="font-semibold text-[#d4a357]">10 a 21 dias</span>
+            <div data-reveal className="reveal reveal-delay-1 rounded-3xl bg-[#121417] p-5 text-[#f2f3ed] sm:p-6">
+              <h3 className="font-display text-xl leading-tight sm:text-2xl">Resumo da proposta</h3>
+              <div className="mt-5 space-y-4 text-sm text-white/80">
+                <div className="flex items-start justify-between gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+                  <span className="min-w-0 break-words">Prazo estimado</span>
+                  <span className="shrink-0 text-right font-semibold text-[#d4a357]">10 a 21 dias</span>
                 </div>
-                <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3">
-                  <span>Entrega</span>
-                  <span className="font-semibold text-[#d4a357]">Design + implementação + publicação</span>
+                <div className="flex items-start justify-between gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+                  <span className="min-w-0 break-words">Entrega</span>
+                  <span className="max-w-[58%] text-right font-semibold leading-tight text-[#d4a357]">Design + implementação + publicação</span>
                 </div>
-                <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3">
-                  <span>Suporte inicial</span>
-                  <span className="font-semibold text-[#d4a357]">30 dias inclusos</span>
+                <div className="flex items-start justify-between gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+                  <span className="min-w-0 break-words">Suporte inicial</span>
+                  <span className="shrink-0 text-right font-semibold text-[#d4a357]">30 dias inclusos</span>
                 </div>
               </div>
             </div>

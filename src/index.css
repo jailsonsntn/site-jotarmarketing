@@ -85,6 +85,13 @@
     min-height: 100vh;
   }
 
+  html,
+  body,
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -241,6 +248,33 @@
     }
     100% {
       transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .glass-surface {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .mesh-orb {
+      filter: blur(34px);
+    }
+
+    .mesh-orb-2,
+    .mesh-orb-3 {
+      display: none;
+    }
+
+    .feature-ticker {
+      animation: featureTicker 34s linear infinite;
+    }
+
+    .reveal {
+      transform: translateY(14px) scale(0.99);
+      transition:
+        opacity 420ms ease,
+        transform 420ms ease;
     }
   }
 

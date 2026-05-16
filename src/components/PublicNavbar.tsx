@@ -15,9 +15,9 @@ const PublicNavbar = ({ transparent = false }: PublicNavbarProps) => {
           : 'bg-[#f7f6f2]/88 shadow-[0_10px_35px_-24px_rgba(0,0,0,0.35)] backdrop-blur-2xl'
       }`}
     >
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <Link to="/#inicio" className="relative z-10 flex items-center">
-          <BrandLogo className="h-12 w-auto sm:h-14" fetchPriority="high" />
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-3 py-3 sm:px-5 sm:py-4 lg:px-8">
+        <Link to="/#inicio" className="relative z-10 flex min-w-0 items-center">
+          <BrandLogo className="h-8 w-auto sm:h-12 lg:h-14" fetchPriority="high" />
         </Link>
 
         <nav className="glass-surface hidden items-center gap-2 rounded-full p-1 text-sm font-medium text-[#1e2124]/80 md:flex">
@@ -48,9 +48,10 @@ const PublicNavbar = ({ transparent = false }: PublicNavbarProps) => {
               '_blank'
             )
           }
-          className="relative z-10 rounded-full bg-[#1e2124] px-5 text-[#f7f6f2] hover:bg-[#2d3237]"
+          className="relative z-10 shrink-0 rounded-full bg-[#1e2124] px-2.5 py-2 text-[11px] leading-none text-[#f7f6f2] hover:bg-[#2d3237] sm:px-5 sm:text-sm"
         >
-          Solicitar análise gratuita agora
+          <span className="sm:hidden">Análise</span>
+          <span className="hidden sm:inline">Solicitar análise gratuita agora</span>
         </Button>
       </div>
     </header>

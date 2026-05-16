@@ -185,7 +185,7 @@ const Orcamento = () => {
                 ))}
               </div>
 
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Button
                   onClick={() =>
                     window.open(
@@ -193,15 +193,15 @@ const Orcamento = () => {
                       '_blank'
                     )
                   }
-                  className="rounded-full bg-[#bf5b2c] px-6 text-white hover:bg-[#a84f25]"
+                  className="w-full rounded-full bg-[#bf5b2c] px-5 text-sm text-white hover:bg-[#a84f25] sm:w-auto sm:px-6 sm:text-base"
                 >
                   <MessageCircle className="mr-2 h-4 w-4" />
-                  Receber proposta pelo WhatsApp
+                  <span className="whitespace-normal text-left sm:whitespace-nowrap">Receber proposta pelo WhatsApp</span>
                 </Button>
               </div>
             </article>
 
-            <form onSubmit={handleSubmit} className="glass-surface rounded-3xl p-8 shadow-[0_20px_50px_-28px_rgba(0,0,0,0.45)]">
+            <form onSubmit={handleSubmit} className="glass-surface rounded-3xl p-6 sm:p-8 shadow-[0_20px_50px_-28px_rgba(0,0,0,0.45)]">
               <h2 className="font-display text-2xl text-[#131518]">Dados para qualificação</h2>
               <p className="mt-2 text-sm text-[#2f353b]/80">
                 Preencha com dados reais da empresa para receber uma proposta mais precisa.
@@ -215,7 +215,7 @@ const Orcamento = () => {
                     placeholder="Digite seu nome completo"
                     value={formData.nome}
                     onChange={(e) => setFormData((prev) => ({ ...prev, nome: e.target.value }))}
-                    className="mt-1 w-full rounded-xl border border-[#1e2124]/20 px-3 py-2"
+                    className="mt-1 w-full min-w-0 rounded-xl border border-[#1e2124]/20 px-3 py-2"
                   />
                 </label>
 
@@ -227,7 +227,7 @@ const Orcamento = () => {
                     placeholder="Digite seu melhor email"
                     value={formData.email}
                     onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
-                    className="mt-1 w-full rounded-xl border border-[#1e2124]/20 px-3 py-2"
+                    className="mt-1 w-full min-w-0 rounded-xl border border-[#1e2124]/20 px-3 py-2"
                   />
                 </label>
 
@@ -238,7 +238,7 @@ const Orcamento = () => {
                     placeholder="DDD + número"
                     value={formData.whatsapp}
                     onChange={(e) => setFormData((prev) => ({ ...prev, whatsapp: e.target.value }))}
-                    className="mt-1 w-full rounded-xl border border-[#1e2124]/20 px-3 py-2"
+                    className="mt-1 w-full min-w-0 rounded-xl border border-[#1e2124]/20 px-3 py-2"
                   />
                 </label>
 
@@ -249,7 +249,7 @@ const Orcamento = () => {
                     placeholder="Digite o nome da empresa"
                     value={formData.empresa}
                     onChange={(e) => setFormData((prev) => ({ ...prev, empresa: e.target.value }))}
-                    className="mt-1 w-full rounded-xl border border-[#1e2124]/20 px-3 py-2"
+                    className="mt-1 w-full min-w-0 rounded-xl border border-[#1e2124]/20 px-3 py-2"
                   />
                 </label>
 
@@ -260,7 +260,7 @@ const Orcamento = () => {
                     placeholder="Ex.: Praia Grande"
                     value={formData.cidade}
                     onChange={(e) => setFormData((prev) => ({ ...prev, cidade: e.target.value }))}
-                    className="mt-1 w-full rounded-xl border border-[#1e2124]/20 px-3 py-2"
+                    className="mt-1 w-full min-w-0 rounded-xl border border-[#1e2124]/20 px-3 py-2"
                   />
                 </label>
 
@@ -270,7 +270,7 @@ const Orcamento = () => {
                     placeholder="Ex.: R$ 30 mil a R$ 80 mil/mês"
                     value={formData.faturamento ?? ''}
                     onChange={(e) => setFormData((prev) => ({ ...prev, faturamento: e.target.value }))}
-                    className="mt-1 w-full rounded-xl border border-[#1e2124]/20 px-3 py-2"
+                    className="mt-1 w-full min-w-0 rounded-xl border border-[#1e2124]/20 px-3 py-2"
                   />
                 </label>
               </div>
@@ -282,7 +282,7 @@ const Orcamento = () => {
                   placeholder="Ex.: Quero gerar mais leads qualificados e melhorar posicionamento no Google para Praia Grande."
                   value={formData.objetivo}
                   onChange={(e) => setFormData((prev) => ({ ...prev, objetivo: e.target.value }))}
-                  className="mt-1 min-h-24 w-full rounded-xl border border-[#1e2124]/20 px-3 py-2"
+                  className="mt-1 min-h-24 w-full min-w-0 rounded-xl border border-[#1e2124]/20 px-3 py-2"
                 />
               </label>
 
@@ -293,7 +293,7 @@ const Orcamento = () => {
                   placeholder="Informe o prazo esperado"
                   value={formData.prazo}
                   onChange={(e) => setFormData((prev) => ({ ...prev, prazo: e.target.value }))}
-                  className="mt-1 w-full rounded-xl border border-[#1e2124]/20 px-3 py-2"
+                  className="mt-1 w-full min-w-0 rounded-xl border border-[#1e2124]/20 px-3 py-2"
                 />
               </label>
 
@@ -303,7 +303,7 @@ const Orcamento = () => {
                   placeholder="Ex.: Tenho referência do site X, preciso integrar WhatsApp e formulário com CRM."
                   value={formData.mensagem ?? ''}
                   onChange={(e) => setFormData((prev) => ({ ...prev, mensagem: e.target.value }))}
-                  className="mt-1 min-h-24 w-full rounded-xl border border-[#1e2124]/20 px-3 py-2"
+                  className="mt-1 min-h-24 w-full min-w-0 rounded-xl border border-[#1e2124]/20 px-3 py-2"
                 />
               </label>
 

@@ -5,6 +5,7 @@ import PublicNavbar from "@/components/PublicNavbar";
 import SiteFooter from "@/components/SiteFooter";
 import { Button } from "@/components/ui/button";
 import { CITY_PAGES } from "@/data/cityPages";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { usePageScrollState } from "@/hooks/usePageScrollState";
 import { SITE_URL, setCanonical, setMetaByName, setMetaByProperty } from "@/lib/seo";
 
@@ -14,7 +15,8 @@ type CityPageProps = {
 
 const CityPage = ({ cityKey }: CityPageProps) => {
   const content = CITY_PAGES[cityKey];
-  const { scrollY, scrollProgress } = usePageScrollState(10);
+  const isMobile = useIsMobile();
+  const { scrollY, scrollProgress } = usePageScrollState(10, !isMobile);
 
   useEffect(() => {
     if (!content) {
@@ -97,31 +99,33 @@ const CityPage = ({ cityKey }: CityPageProps) => {
 
   return (
     <div className="min-h-screen bg-transparent text-[#1e2124]">
-      <div className="fixed left-0 right-0 top-0 z-[70] h-[3px] bg-black/5">
-        <div
-          className="h-full bg-[linear-gradient(90deg,#194f45_0%,#bf5b2c_45%,#d4a357_100%)] transition-[width] duration-150"
-          style={{ width: `${scrollProgress}%` }}
-        />
-      </div>
+      {!isMobile ? (
+        <div className="fixed left-0 right-0 top-0 z-[70] h-[3px] bg-black/5">
+          <div
+            className="h-full bg-[linear-gradient(90deg,#194f45_0%,#bf5b2c_45%,#d4a357_100%)] transition-[width] duration-150"
+            style={{ width: `${scrollProgress}%` }}
+          />
+        </div>
+      ) : null}
 
       <div className="mesh-gradient-bg pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div
           className="mesh-orb mesh-orb-1"
-          style={{ transform: `translate3d(${scrollY * -0.04}px, ${scrollY * 0.08}px, 0)` }}
+          style={isMobile ? undefined : { transform: `translate3d(${scrollY * -0.04}px, ${scrollY * 0.08}px, 0)` }}
         />
         <div
           className="mesh-orb mesh-orb-2"
-          style={{ transform: `translate3d(${scrollY * 0.05}px, ${scrollY * -0.05}px, 0)` }}
+          style={isMobile ? undefined : { transform: `translate3d(${scrollY * 0.05}px, ${scrollY * -0.05}px, 0)` }}
         />
         <div
           className="mesh-orb mesh-orb-3"
-          style={{ transform: `translate3d(${scrollY * -0.03}px, ${scrollY * 0.04}px, 0)` }}
+          style={isMobile ? undefined : { transform: `translate3d(${scrollY * -0.03}px, ${scrollY * 0.04}px, 0)` }}
         />
       </div>
 
       <PublicNavbar transparent />
 
-      <main id="topo" className="px-5 pb-16 pt-36 lg:px-8 lg:pt-44">
+      <main id="topo" className="px-5 pb-16 pt-28 lg:px-8 lg:pt-44">
         <nav aria-label="Breadcrumb" className="mx-auto mb-6 w-full max-w-7xl">
           <ol className="flex items-center gap-2 text-sm text-[#2f353b]/80">
             <li>
@@ -180,7 +184,7 @@ const CityPage = ({ cityKey }: CityPageProps) => {
           <aside
             id="servicos"
             className="rounded-[2rem] border border-[#1e2124]/10 bg-[#121417] p-6 text-[#f2f3ed] shadow-[0_30px_80px_-36px_rgba(0,0,0,0.8)]"
-            style={{ transform: `translateY(${scrollY * -0.05}px)` }}
+            style={isMobile ? undefined : { transform: `translateY(${scrollY * -0.05}px)` }}
           >
             <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
               <h2 className="font-display text-2xl">Plano local avançado</h2>

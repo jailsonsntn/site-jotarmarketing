@@ -12,12 +12,18 @@ const INITIAL_STATE: PageScrollState = {
   scrollProgress: 0,
 };
 
-export const usePageScrollState = (threshold = 12) => {
+export const usePageScrollState = (threshold = 12, enabled = true) => {
   const [state, setState] = useState<PageScrollState>(INITIAL_STATE);
   const frameRef = useRef<number | null>(null);
   const stateRef = useRef<PageScrollState>(INITIAL_STATE);
 
   useEffect(() => {
+    if (!enabled) {
+      stateRef.current = INITIAL_STATE;
+      setState(INITIAL_STATE);
+      return;
+    }
+
     const measure = () => {
       frameRef.current = null;
 
@@ -63,7 +69,7 @@ export const usePageScrollState = (threshold = 12) => {
         window.cancelAnimationFrame(frameRef.current);
       }
     };
-  }, [threshold]);
+  }, [enabled, threshold]);
 
   return state;
 };
