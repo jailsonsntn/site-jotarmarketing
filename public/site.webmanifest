@@ -1,0 +1,22 @@
+{
+  "name": "Jota R Web",
+  "short_name": "Jota R Web",
+  "description": "Criação de sites profissionais, landing pages e SEO técnico.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#e6d5b9",
+  "theme_color": "#194f45",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/uploads/2dcc7432-8798-4ae1-b564-16c9f42cc0d1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/uploads/2dcc7432-8798-4ae1-b564-16c9f42cc0d1.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

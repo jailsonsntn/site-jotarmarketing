@@ -1,0 +1,38 @@
+# Jota R Web
+
+> Agência de desenvolvimento de sites premium com foco em performance, SEO técnico e conversão.
+
+## Resumo
+- Nome: Jota R Web (Jota R Marketing)
+- Site: https://jotarmarketing.com.br/
+- Serviço principal: criação de sites profissionais para empresas
+- Especialidades: landing pages, SEO técnico, UX/UI, performance web
+- Local de atendimento: Brasil
+- Contato: falecom.jr.marketing@gmail.com | +55 13 98599-4965
+
+## Páginas
+- Home: https://jotarmarketing.com.br/
+- Sitemap: https://jotarmarketing.com.br/sitemap.xml
+- Robots: https://jotarmarketing.com.br/robots.txt
+
+## Projetos Publicados
+- https://masterpiscinaslitoral.com.br/
+- https://www.acmconstrucaoereformas.com.br/
+- https://joaocolussiadvocacia.com.br/
+- https://www.correahousesmobiliados.com.br/
+- https://www.tvdecor.com.py/
+- https://construtorasantos.vercel.app/
+
+## Entidades e Termos Relevantes
+- criação de sites
+- desenvolvimento web
+- site institucional
+- landing page de conversão
+- SEO técnico
+- Core Web Vitals
+- otimização de conversão
+- UX/UI premium
+
+## Redes
+- Instagram: https://www.instagram.com/jotar.marketing/
+- Facebook: https://www.facebook.com/jotarmkt/
