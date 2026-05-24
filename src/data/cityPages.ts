@@ -39,13 +39,13 @@ export const CITY_PAGES: Record<string, CityPageContent> = {
     slug: "santos",
     cityName: "Santos",
     fullName: "Santos - SP",
-    title: "Criação de Sites em Santos | JR Marketing",
+    title: "Criação de Sites em Santos | Jota R Web | SEO Local",
     description:
-      "Agência de criação de sites em Santos. Entregamos páginas premium com SEO técnico, UX e alta performance para negócios locais.",
-    heading: "Desenvolvimento de Sites em Santos para Empresas",
+      "Criação de sites em Santos com SEO local, performance e conversão para empresas que querem aparecer no Google e gerar mais contatos.",
+    heading: "Criação de Sites em Santos com SEO Local",
     intro:
-      "Projetamos experiências digitais estratégicas para empresas de Santos que querem ampliar autoridade e gerar mais oportunidades.",
-    seoFocus: ["criação de sites em Santos", "desenvolvimento web Santos", "site empresarial Santos"],
+      "Desenvolvemos sites estratégicos para empresas de Santos com foco em autoridade digital, visibilidade no Google e geração de oportunidades reais.",
+    seoFocus: ["criação de sites em Santos", "site profissional Santos", "SEO local Santos"],
     neighborhoods: ["Gonzaga", "Aparecida", "Ponta da Praia", "Embare", "Marape"],
     faq: [
       {
