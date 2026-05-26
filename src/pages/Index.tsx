@@ -433,6 +433,61 @@ const Index = () => {
           </div>
         </section>
 
+        <section id="estrategia" className="px-5 py-16 lg:px-8 lg:py-24" data-deferred-section>
+          <div className="mx-auto w-full max-w-7xl">
+            <div data-reveal className="reveal max-w-4xl">
+              <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[#194f45]">Conteúdo estratégico</p>
+              <h2 className="font-display text-3xl leading-tight text-[#131518] md:text-5xl">
+                Criação de sites profissionais com foco em SEO técnico, autoridade e geração de oportunidades.
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-[#2f353b]/90">
+                Um site institucional moderno não serve apenas para "estar online". Ele precisa comunicar o valor da marca,
+                responder dúvidas reais do público e conduzir visitantes para o próximo passo da jornada de compra. Por isso,
+                cada projeto da JR Marketing combina arquitetura de informação, copy estratégica e performance técnica para
+                transformar tráfego em oportunidades comerciais.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-[#2f353b]/90">
+                Nossa abordagem considera desde a intenção de busca no Google até a experiência no celular, incluindo estrutura
+                semântica, títulos claros, escaneabilidade e chamadas para ação em pontos-chave da página. O resultado é um site
+                que melhora percepção de autoridade, reduz abandono e aumenta a taxa de contato de empresas que dependem de
+                presença digital forte para vender serviços e conquistar novos clientes.
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
+              <article data-reveal className="reveal rounded-3xl border border-[#1e2124]/10 bg-white/80 p-6 backdrop-blur">
+                <h3 className="font-display text-2xl text-[#131518]">SEO de Base Sólida</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#2f353b]/85">
+                  Implementamos boas práticas técnicas para facilitar indexação e interpretação do conteúdo por mecanismos de
+                  busca, com atenção a hierarquia de headings, meta tags, links internos e contexto semântico.
+                </p>
+              </article>
+
+              <article
+                data-reveal
+                className="reveal reveal-delay-1 rounded-3xl border border-[#1e2124]/10 bg-white/80 p-6 backdrop-blur"
+              >
+                <h3 className="font-display text-2xl text-[#131518]">UX para Conversão</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#2f353b]/85">
+                  Organizamos conteúdo com foco em clareza e confiança. Isso ajuda o usuário a entender rapidamente seus
+                  diferenciais, visualizar provas sociais e entrar em contato sem fricção, seja por WhatsApp ou formulário.
+                </p>
+              </article>
+
+              <article
+                data-reveal
+                className="reveal reveal-delay-2 rounded-3xl border border-[#1e2124]/10 bg-white/80 p-6 backdrop-blur"
+              >
+                <h3 className="font-display text-2xl text-[#131518]">Performance e Escalabilidade</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#2f353b]/85">
+                  Projetamos sites rápidos e preparados para evoluir. Isso inclui estrutura de componentes reutilizáveis,
+                  otimizações de carregamento e base técnica adequada para expansão de páginas de serviços e conteúdo local.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
         <section id="faq" className="px-5 py-16 lg:px-8 lg:py-24" data-deferred-section>
           <div className="mx-auto w-full max-w-7xl">
             <div data-reveal className="reveal mb-12 max-w-3xl">
