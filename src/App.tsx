@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-const Index = lazy(() => import("./pages/Index"));
+import Index from "./pages/Index";
 const CityPage = lazy(() => import("./pages/CityPage"));
 const Orcamento = lazy(() => import("./pages/Orcamento"));
 const Blog = lazy(() => import("./pages/Blog"));
