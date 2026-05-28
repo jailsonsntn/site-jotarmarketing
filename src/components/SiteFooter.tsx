@@ -21,6 +21,16 @@ const SiteFooter = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/sobre" className="hover:underline">
+                  Sobre Nós
+                </Link>
+              </li>
+              <li>
+                <Link to="/contato" className="hover:underline">
+                  Contato
+                </Link>
+              </li>
+              <li>
                 <Link to="/blog" className="hover:underline">
                   Blog
                 </Link>

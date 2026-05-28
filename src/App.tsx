@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 const CityPage = lazy(() => import("./pages/CityPage"));
 const Orcamento = lazy(() => import("./pages/Orcamento"));
+const Sobre = lazy(() => import("./pages/Sobre"));
+const Contato = lazy(() => import("./pages/Contato"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const AdminFormularios = lazy(() => import("./pages/AdminFormularios"));
@@ -69,6 +71,8 @@ const App = () => (
           <Route path="/guaruja" element={<CityPage cityKey="guaruja" />} />
           <Route path="/bertioga" element={<CityPage cityKey="bertioga" />} />
           <Route path="/orcamento" element={<Orcamento />} />
+          <Route path="/sobre" element={<Sobre />} />
+          <Route path="/contato" element={<Contato />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogArticle />} />
           <Route path="/admin/formularios" element={<AdminFormularios />} />

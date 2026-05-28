@@ -30,6 +30,9 @@ const PublicNavbar = ({ transparent = false }: PublicNavbarProps) => {
           <Link to="/orcamento" className="rounded-full px-5 py-2.5 transition hover:bg-[#1e2124]/5 hover:text-[#1e2124]">
             Orçamento
           </Link>
+          <Link to="/sobre" className="rounded-full px-5 py-2.5 transition hover:bg-[#1e2124]/5 hover:text-[#1e2124]">
+            Sobre
+          </Link>
           <Link to="/blog" className="rounded-full px-5 py-2.5 transition hover:bg-[#1e2124]/5 hover:text-[#1e2124]">
             Blog
           </Link>

@@ -18,6 +18,11 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { usePageScrollState } from '@/hooks/usePageScrollState';
 import { cancelIdle, requestIdle } from '@/lib/idle';
 import { SITE_URL, setCanonical, setMetaByName, setMetaByProperty } from '@/lib/seo';
+import masterPiscinasPrint from '@/assets/sites-recentes/www.masterpiscinaslitoral.com.br.webp';
+import joaoColussiPrint from '@/assets/sites-recentes/joaocolussiadvocacia.com.br.webp';
+import correaHousePrint from '@/assets/sites-recentes/www.correahousesmobiliados.com.br.webp';
+import tvDecorPrint from '@/assets/sites-recentes/www.tvdecor.com.py.webp';
+import coworkingPrint from '@/assets/sites-recentes/www.coworkingsaudetherapi.com.br.webp';
 
 const HOME_FAQ = [
   {
@@ -35,6 +40,63 @@ const HOME_FAQ = [
     answer:
       'Sim. Todo projeto é desenvolvido com foco mobile-first para navegação fluida e melhor experiência em dispositivos móveis.',
   },
+  {
+    question: 'A JR Marketing atende apenas Praia Grande?',
+    answer:
+      'Não. Atendemos Praia Grande, toda a Baixada Santista e empresas de outras regiões do Brasil com reuniões online e entregas sob medida.',
+  },
+  {
+    question: 'Quais tipos de empresa mais se beneficiam de um site profissional?',
+    answer:
+      'Prestadores de serviço, escritórios, clínicas, construtoras, lojas e negócios locais costumam ganhar mais autoridade, melhorar o contato comercial e reduzir dependência exclusiva de redes sociais.',
+  },
+  {
+    question: 'Posso contratar apenas uma landing page?',
+    answer:
+      'Sim. Desenvolvemos desde landing pages de conversão até sites institucionais completos, sempre com foco em clareza da oferta, SEO técnico e captação de leads.',
+  },
+];
+
+const HOME_DIFFERENTIALS = [
+  {
+    title: 'Estratégia antes da interface',
+    description:
+      'Cada projeto começa pela meta comercial da empresa, pela intenção de busca do público e pela estrutura de páginas necessária para gerar contato real.',
+  },
+  {
+    title: 'Conteúdo pensado para conversão',
+    description:
+      'Não entregamos apenas um layout bonito. Organizamos mensagens, provas de confiança e chamadas para ação para facilitar a decisão do visitante.',
+  },
+  {
+    title: 'SEO técnico aplicado na base',
+    description:
+      'Heading hierarchy, metadados, canonical, schema, links internos e performance entram desde o início para sustentar crescimento orgânico.',
+  },
+  {
+    title: 'Execução sob medida',
+    description:
+      'Cada site é desenhado conforme o tipo de negócio, a oferta e o nível de maturidade digital da empresa, sem depender de templates genéricos.',
+  },
+  {
+    title: 'Foco local para a Baixada Santista',
+    description:
+      'Estruturamos páginas e mensagens para captar buscas como criação de sites em Praia Grande, Santos e outras cidades da região.',
+  },
+  {
+    title: 'Suporte para evolução contínua',
+    description:
+      'Depois da publicação, o projeto continua com base pronta para novos conteúdos, páginas adicionais, campanhas e melhorias de conversão.',
+  },
+];
+
+const HOME_CLIENT_SEGMENTS = [
+  'Construtoras e empresas de reforma',
+  'Advocacia e serviços profissionais',
+  'Clínicas, coworkings e negócios de saúde',
+  'Turismo, hospedagem e locação',
+  'Comércio local e operações com atendimento por WhatsApp',
+  'Empresas que precisam unir site institucional e geração de leads',
 ];
 
 const HOME_FEATURE_WORDS = [
@@ -210,12 +272,51 @@ const Index = () => {
   ];
 
   const recentProjects = [
-    { name: 'Master Piscinas Litoral', url: 'https://masterpiscinaslitoral.com.br/' },
-    { name: 'ACM Construcao e Reformas', url: 'https://www.acmconstrucaoereformas.com.br/' },
-    { name: 'Joao Colussi Advocacia', url: 'https://joaocolussiadvocacia.com.br/' },
-    { name: 'Correa House', url: 'https://www.correahousesmobiliados.com.br/' },
-    { name: 'TV Decor', url: 'https://www.tvdecor.com.py/' },
-    { name: 'Construtora Santos', url: 'https://construtorasantos.vercel.app/' },
+    {
+      name: 'Master Piscinas Litoral',
+      url: 'https://masterpiscinaslitoral.com.br/',
+      segment: 'Piscinas e serviços locais',
+      summary:
+        'Projeto com foco em apresentação clara de serviços, autoridade regional e rota direta para solicitação de atendimento.',
+      image: masterPiscinasPrint,
+      imageAlt: 'Preview do site Master Piscinas Litoral com foco em serviços e conversão local',
+    },
+    {
+      name: 'Joao Colussi Advocacia',
+      url: 'https://joaocolussiadvocacia.com.br/',
+      segment: 'Advocacia',
+      summary:
+        'Site institucional desenhado para transmitir credibilidade, organizar áreas de atuação e melhorar a experiência de leitura no mobile.',
+      image: joaoColussiPrint,
+      imageAlt: 'Preview do site Joao Colussi Advocacia com apresentação institucional e áreas de atuação',
+    },
+    {
+      name: 'Correa House',
+      url: 'https://www.correahousesmobiliados.com.br/',
+      segment: 'Hospedagem e locação',
+      summary:
+        'Página pensada para apresentar unidades, dar contexto ao serviço e reduzir fricção no caminho até a reserva ou contato.',
+      image: correaHousePrint,
+      imageAlt: 'Preview do site Correa House com foco em apresentação de hospedagem e contato',
+    },
+    {
+      name: 'TV Decor',
+      url: 'https://www.tvdecor.com.py/',
+      segment: 'Móveis e decoração',
+      summary:
+        'Experiência visual mais refinada para catálogo, posicionamento de marca e apresentação de portfólio com carregamento leve.',
+      image: tvDecorPrint,
+      imageAlt: 'Preview do site TV Decor com vitrine visual para catálogo de móveis e decoração',
+    },
+    {
+      name: 'Coworking Saúde Therapi',
+      url: 'https://www.coworkingsaudetherapi.com.br/',
+      segment: 'Saúde e coworking',
+      summary:
+        'Estrutura para apresentar especialidades de atendimento, facilitar agendamento e reforçar posicionamento regional no digital.',
+      image: coworkingPrint,
+      imageAlt: 'Preview do site Coworking Saúde Therapi com serviços e chamada para atendimento',
+    },
   ];
 
   return (
@@ -255,12 +356,13 @@ const Index = () => {
               </span>
 
               <h1 className="font-display text-4xl leading-[1.02] text-[#131518] md:text-6xl lg:text-7xl">
-                Criação de Sites com SEO Técnico para vender mais.
+                Criação de Sites em Praia Grande e Baixada Santista com SEO Técnico.
               </h1>
 
               <p className="max-w-xl text-lg leading-relaxed text-[#2f353b]/80">
                 Criamos sites sofisticados, rápidos e orientados à conversão para empresas que querem
-                crescer com presença digital de alto nível.
+                crescer com presença digital de alto nível, aparecer melhor no Google e transformar
+                visitas em oportunidades comerciais reais.
               </p>
 
               <div className="flex flex-col gap-2 sm:flex-row sm:gap-3">
@@ -452,6 +554,13 @@ const Index = () => {
                 que melhora percepção de autoridade, reduz abandono e aumenta a taxa de contato de empresas que dependem de
                 presença digital forte para vender serviços e conquistar novos clientes.
               </p>
+              <p className="mt-4 text-base leading-relaxed text-[#2f353b]/90">
+                Para negócios em Praia Grande e na Baixada Santista, isso é ainda mais importante. O público costuma comparar
+                várias opções rapidamente, quase sempre pelo celular, e escolhe quem transmite mais segurança logo nos primeiros
+                segundos. Quando o site deixa clara a proposta, mostra especialidades, reforça a localização de atendimento e
+                conduz para o WhatsApp ou formulário, a empresa passa a competir com mais consistência por buscas locais e por
+                indicações que chegam ao Google antes do fechamento.
+              </p>
             </div>
 
             <div className="mt-8 grid gap-4 md:grid-cols-3">
@@ -484,6 +593,37 @@ const Index = () => {
                   otimizações de carregamento e base técnica adequada para expansão de páginas de serviços e conteúdo local.
                 </p>
               </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="diferenciais" className="px-5 py-16 lg:px-8 lg:py-24" data-deferred-section>
+          <div className="mx-auto w-full max-w-7xl">
+            <div data-reveal className="reveal mb-12 max-w-4xl">
+              <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[#194f45]">Por que escolher a JR Marketing?</p>
+              <h2 className="font-display text-3xl leading-tight text-[#131518] md:text-5xl">
+                Um site precisa vender, posicionar a marca e sustentar SEO de verdade.
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-[#2f353b]/90">
+                Empresas que contratam a JR Marketing normalmente já perceberam que depender apenas de rede social ou tráfego
+                pago deixa a captação frágil. O site entra como base da presença digital: organiza a oferta, melhora a confiança
+                e cria um ativo próprio para campanhas, buscas orgânicas e relacionamento comercial.
+              </p>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {HOME_DIFFERENTIALS.map((item, idx) => (
+                <article
+                  key={item.title}
+                  data-reveal
+                  className={`reveal rounded-3xl border border-[#1e2124]/10 bg-white/80 p-6 backdrop-blur ${
+                    idx > 0 ? `reveal-delay-${Math.min(idx, 3)}` : ''
+                  }`}
+                >
+                  <h3 className="font-display text-2xl text-[#131518]">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[#2f353b]/85">{item.description}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -521,6 +661,11 @@ const Index = () => {
               <h2 className="font-display text-3xl leading-tight text-[#131518] md:text-5xl">
                 Projetos lançados recentemente para nossos clientes.
               </h2>
+              <p className="mt-5 text-base leading-relaxed text-[#2f353b]/85">
+                Em vez de uma home rasa com promessas genéricas, preferimos mostrar contextos reais de aplicação. Abaixo estão
+                alguns projetos publicados em segmentos diferentes, o que ajuda o visitante a entender que a solução pode ser
+                adaptada tanto para serviços locais quanto para negócios com operação mais ampla.
+              </p>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -532,19 +677,65 @@ const Index = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     data-reveal
-                    className={`reveal group rounded-3xl border border-[#1e2124]/10 bg-white/80 p-6 backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-28px_rgba(0,0,0,0.75)] ${
+                    className={`reveal group overflow-hidden rounded-3xl border border-[#1e2124]/10 bg-white/80 backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-28px_rgba(0,0,0,0.75)] ${
                       idx > 0 ? `reveal-delay-${Math.min(idx, 3)}` : ''
                     }`}
                   >
-                    <p className="text-xs uppercase tracking-[0.14em] text-[#194f45]">Projeto publicado</p>
-                    <p className="mt-2 font-display text-xl text-[#131518]">{project.name}</p>
-                    <span className="mt-4 inline-flex items-center text-sm font-semibold text-[#bf5b2c]">
-                      Visitar site
-                      <ArrowUpRight className="ml-1 h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                    </span>
+                    <img
+                      src={project.image}
+                      alt={project.imageAlt}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-44 w-full object-cover object-top"
+                    />
+                    <div className="p-6">
+                      <p className="text-xs uppercase tracking-[0.14em] text-[#194f45]">Projeto publicado</p>
+                      <p className="mt-2 font-display text-xl text-[#131518]">{project.name}</p>
+                      <p className="mt-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#bf5b2c]">{project.segment}</p>
+                      <p className="mt-3 text-sm leading-relaxed text-[#2f353b]/80">{project.summary}</p>
+                      <span className="mt-4 inline-flex items-center text-sm font-semibold text-[#bf5b2c]">
+                        Visitar site
+                        <ArrowUpRight className="ml-1 h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </span>
+                    </div>
                   </a>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        <section id="clientes" className="px-5 py-16 lg:px-8 lg:py-24" data-deferred-section>
+          <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+            <div data-reveal className="reveal rounded-[2rem] border border-[#1e2124]/10 bg-[#121417] p-8 text-[#f2f3ed] shadow-[0_28px_70px_-34px_rgba(0,0,0,0.8)]">
+              <p className="text-xs uppercase tracking-[0.2em] text-[#d4a357]">Clientes atendidos</p>
+              <h2 className="mt-3 font-display text-3xl leading-tight md:text-5xl">
+                Estrutura para negócios locais, serviços especializados e empresas que precisam gerar demanda.
+              </h2>
+              <p className="mt-5 text-sm leading-relaxed text-white/80 sm:text-base">
+                O padrão mais comum entre nossos clientes é a necessidade de apresentar autoridade com rapidez, ter um canal de
+                contato visível em todos os dispositivos e construir uma base que ajude tanto na venda consultiva quanto no SEO
+                local. Por isso, a arquitetura do site sempre considera escaneabilidade, clareza de oferta e proximidade com a
+                região atendida.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {HOME_CLIENT_SEGMENTS.map((segment, idx) => (
+                <article
+                  key={segment}
+                  data-reveal
+                  className={`reveal rounded-3xl border border-[#1e2124]/10 bg-white/80 p-6 backdrop-blur ${
+                    idx > 0 ? `reveal-delay-${Math.min(idx, 3)}` : ''
+                  }`}
+                >
+                  <h3 className="font-display text-xl text-[#131518]">{segment}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[#2f353b]/85">
+                    Projeto estruturado para transmitir confiança, explicar a oferta com objetividade e direcionar o usuário para
+                    o próximo passo comercial sem fricção.
+                  </p>
+                </article>
+              ))}
             </div>
           </div>
         </section>

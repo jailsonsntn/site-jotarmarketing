@@ -18,6 +18,8 @@ const STATIC_ROUTES = [
   { path: "/guaruja", priority: "0.9", changefreq: "weekly" },
   { path: "/bertioga", priority: "0.9", changefreq: "weekly" },
   { path: "/orcamento", priority: "0.8", changefreq: "weekly" },
+  { path: "/sobre", priority: "0.8", changefreq: "monthly" },
+  { path: "/contato", priority: "0.8", changefreq: "monthly" },
   { path: "/blog", priority: "0.8", changefreq: "weekly" },
 ];
 
