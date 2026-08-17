@@ -1,4 +1,4 @@
-﻿import { useEffect } from "react";
+﻿import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { ArrowUpRight, CheckCircle2, MapPin, MessageCircle, Sparkles } from "lucide-react";
 import PublicNavbar from "@/components/PublicNavbar";
@@ -15,8 +15,31 @@ type CityPageProps = {
 
 const CityPage = ({ cityKey }: CityPageProps) => {
   const content = CITY_PAGES[cityKey];
+  const faqItems = content?.faq ?? [];
   const isMobile = useIsMobile();
   const { scrollY, scrollProgress } = usePageScrollState(10, !isMobile);
+  const [expandedFaqs, setExpandedFaqs] = useState<Record<number, boolean>>({});
+
+  useEffect(() => {
+    if (!faqItems.length) {
+      setExpandedFaqs({});
+      return;
+    }
+
+    setExpandedFaqs(Object.fromEntries(faqItems.map((_, index) => [index, index === 0])));
+  }, [faqItems]);
+
+  const toggleFaq = (index: number) => {
+    setExpandedFaqs((current) => ({
+      ...current,
+      [index]: !current[index],
+    }));
+  };
+
+  const toggleAllFaqs = () => {
+    const shouldExpandAll = !faqItems.every((_, index) => expandedFaqs[index]);
+    setExpandedFaqs(Object.fromEntries(faqItems.map((_, index) => [index, shouldExpandAll])));
+  };
 
   useEffect(() => {
     if (!content) {
@@ -255,14 +278,39 @@ const CityPage = ({ cityKey }: CityPageProps) => {
           </article>
 
           <article id="faq" className="rounded-3xl border border-[#1e2124]/10 bg-white/80 p-8 backdrop-blur">
-            <h2 className="font-display text-3xl text-[#131518]">Perguntas frequentes</h2>
+            <div className="flex items-center justify-between gap-3">
+              <h2 className="font-display text-3xl text-[#131518]">Perguntas frequentes</h2>
+              <button
+                type="button"
+                onClick={toggleAllFaqs}
+                className="rounded-full border border-[#1e2124]/10 bg-[#194f45]/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-[#194f45] transition hover:bg-[#194f45]/10"
+              >
+                {content.faq.every((_, index) => expandedFaqs[index]) ? "Recolher tudo" : "Expandir tudo"}
+              </button>
+            </div>
+
             <div className="mt-6 space-y-4">
-              {content.faq.map((item) => (
-                <div key={item.question} className="rounded-2xl border border-[#1e2124]/10 bg-white/85 p-4">
-                  <h3 className="text-sm font-semibold text-[#131518]">{item.question}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#2f353b]/80">{item.answer}</p>
-                </div>
-              ))}
+              {faqItems.map((item, index) => {
+                const isExpanded = Boolean(expandedFaqs[index]);
+
+                return (
+                  <div key={item.question} className="overflow-hidden rounded-2xl border border-[#1e2124]/10 bg-white/85">
+                    <button
+                      type="button"
+                      onClick={() => toggleFaq(index)}
+                      className="flex w-full items-center justify-between gap-3 p-4 text-left"
+                      aria-expanded={isExpanded}
+                    >
+                      <h3 className="text-sm font-semibold text-[#131518]">{item.question}</h3>
+                      <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#1e2124]/10 bg-[#194f45]/5 text-lg font-medium text-[#194f45]">
+                        {isExpanded ? "−" : "+"}
+                      </span>
+                    </button>
+
+                    {isExpanded ? <p className="border-t border-[#1e2124]/10 px-4 pb-4 pt-3 text-sm leading-relaxed text-[#2f353b]/80">{item.answer}</p> : null}
+                  </div>
+                );
+              })}
             </div>
           </article>
         </section>
